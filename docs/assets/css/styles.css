@@ -133,16 +133,24 @@ tr:nth-child(even){
   color:var(--text-color);
   background-color: var(--even-row-bg-color);
 }
-.side-nav{
-  border-radius: 4px;
-  border-style: none;
-}
 .side-nav tr{
   color:var(--bg-color);
   background-color: var(--text-color);
 }
 .side-nav a, .side-nav a:visited{
   color:var(--bg-color);
+}
+.side-nav tr:first-of-type {
+  border-top-left-radius: 10px;
+}
+.side-nav tr:last-of-type {
+  border-top-right-radius: 10px;
+}
+.side-nav tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 10px;
+}
+.side-nav tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 10px;
 }
 
 img {
