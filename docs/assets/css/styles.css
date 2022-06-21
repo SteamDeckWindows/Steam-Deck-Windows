@@ -1,21 +1,21 @@
 body {
-  --text-color: var(--text-color);;
-  --bg-color: #fff;
+  --text-color: #202020;
+  --bg-color: #e5e5e5;
 }
 body.dark-theme {
-  --text-color: #eee;
-  --bg-color: #121212;
+  --text-color: #e5e5e5;
+  --bg-color: #202020;
 }
 
 @media (prefers-color-scheme: dark) {
   /* defaults to dark theme */
   body {
-    --text-color: #eee;
-    --bg-color: #121212;
+    --text-color: #e5e5e5;
+    --bg-color: #202020;
   }
   body.light-theme {
-    --text-color: var(--text-color);;
-    --bg-color: #fff;
+    --text-color: #202020;
+    --bg-color: #e5e5e5;
   }
 }
 
