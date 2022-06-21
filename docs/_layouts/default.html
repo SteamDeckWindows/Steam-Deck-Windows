@@ -24,7 +24,7 @@
             {% endif %}
           {% endfor %}
         </table>
-
+        <button class="btn-toggle">Toggle Theme-Mode</button>
         {% if site.show_downloads %}
           <ul>
             <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
@@ -45,7 +45,7 @@
       </footer>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-
+    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 
   {% if site.google_analytics %}
     <script>
