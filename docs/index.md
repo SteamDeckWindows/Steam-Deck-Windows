@@ -8,7 +8,7 @@ layout: default
 The main goal for this project is to make the following easy for Steam Deck owners running Windows:
 - Install and setup [GlosSI](https://github.com/Alia5/GlosSI) (Rebind Steam Controls)
 - Install and configure [Emulation Station DE](https://gitlab.com/es-de/emulationstation-de)
-- Install and configure various emulators
+- Install and configure various emulators and tools
 - Install and configure [Steam Rom Manager](https://steamgriddb.github.io/steam-rom-manager/)
 
 ## Prerequisites

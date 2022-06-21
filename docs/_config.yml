@@ -11,5 +11,7 @@ navigation:
     url: emulators
   - title: Hotkeys
     url: hotkeys
+  - title: Tools
+    url: tools
   - title: Developer Guide
     url: developer-guide
