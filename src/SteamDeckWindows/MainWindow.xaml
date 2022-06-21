@@ -1,0 +1,18 @@
+﻿<Window x:Class="SteamDeckWindows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SteamDeckWindows"
+        mc:Ignorable="d"
+        Background="Black"
+        Title="Steam Deck Windows" Height="800" Width="1280">
+    <Grid>
+        <Button x:Name="DownLoadDrivers" Content="Drivers" HorizontalAlignment="Left" Margin="80,266,0,0" VerticalAlignment="Top" Click="DownLoadDrivers_Click" Width="241" Height="37" Background="#FF151515" Foreground="White"/>
+        <ProgressBar x:Name="SubProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,690,0,0" VerticalAlignment="Top" Width="1238" RenderTransformOrigin="0.5,-1.355"/>
+        <Label x:Name="SubProgressLabel" Content="Label" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="1237" Margin="0,659,0,0" Foreground="White"/>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,744,0,0" VerticalAlignment="Top" Width="1238" RenderTransformOrigin="0.5,-1.355"/>
+        <Label x:Name="ProgressLabel" Content="Label" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="1237" Margin="0,713,0,0" Foreground="White"/>
+
+    </Grid>
+</Window>
