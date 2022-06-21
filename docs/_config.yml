@@ -5,5 +5,7 @@ show_downloads: True
 navigation:
   - title: Home
     url: /
+  - title: Install Windows 11
+    url: install-windows-11
   - title: Setup
     url: setup
