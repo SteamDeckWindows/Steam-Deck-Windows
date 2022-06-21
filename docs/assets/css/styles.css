@@ -135,7 +135,7 @@ header ul {
   list-style:none;
   height:40px;
   padding:0;
-  background: #f4f4f4;
+  background: var(--bg-color);
   border-radius:5px;
   border:1px solid var(--text-color);;
   width:270px;
@@ -159,7 +159,7 @@ header li:last-child a {
 header ul a {
   line-height:1;
   font-size:11px;
-  color:#999;
+  color:var(--text-color);
   display:block;
   text-align:center;
   padding-top:6px;
@@ -167,7 +167,7 @@ header ul a {
 }
 
 header ul a:hover {
-  color:#999;
+  color:var(--text-color);
 }
 
 header ul a:active {
@@ -202,7 +202,7 @@ small {
 
 hr {
   border:0;
-  background:var(--bg-color);;
+  background:var(--bg-color);
   height:1px;
   margin:0 0 20px;
 }
@@ -307,7 +307,6 @@ footer {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
-  margin: 0;
   max-width: none;
   min-height: 44px;
   min-width: 10px;
