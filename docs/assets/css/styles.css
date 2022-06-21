@@ -81,7 +81,7 @@ a:hover small {
 }
 
 blockquote {
-  border-left:1px solid var(--bg-color);;
+  border-left:1px solid var(--bg-color);
   margin:0;
   padding:0 0 0 20px;
   font-style:italic;
@@ -96,7 +96,7 @@ pre {
   padding:8px 15px;
   background: #f8f8f8;
   border-radius:5px;
-  border:1px solid var(--bg-color);;
+  border:1px solid var(--bg-color);
   overflow-x: auto;
 }
 
@@ -108,7 +108,7 @@ table {
 th, td {
   text-align:left;
   padding:5px 10px;
-  border-bottom:1px solid var(--bg-color);;
+  border-bottom:1px solid var(--bg-color);
 }
 
 dt {
@@ -117,7 +117,18 @@ dt {
 }
 
 th {
-  color:#444;
+  color:var(--bg-color);
+  background-color: var(--text-color);
+}
+
+tr {
+  color:var(--text-color);
+  background-color: var(--bg-color);
+}
+
+tr:nth-child(even){
+  color:var(--text-color);
+  background-color: darken(var(--bg-color), 0.3);
 }
 
 img {
@@ -137,14 +148,14 @@ header ul {
   padding:0;
   background: var(--bg-color);
   border-radius:5px;
-  border:1px solid var(--text-color);;
+  border:1px solid var(--text-color);
   width:270px;
 }
 
 header li {
   width:89px;
   float:left;
-  border-right:1px solid var(--text-color);;
+  border-right:1px solid var(--text-color);
   height:40px;
 }
 
@@ -171,11 +182,11 @@ header ul a:hover {
 }
 
 header ul a:active {
-  background-color:var(--text-color);;
+  background-color:var(--text-color);
 }
 
 strong {
-  color:var(--text-color);;
+  color:var(--text-color);
   font-weight:500;
 }
 
@@ -187,7 +198,7 @@ header ul li + li + li {
 header ul a strong {
   font-size:14px;
   display:block;
-  color:var(--text-color);;
+  color:var(--text-color);
 }
 
 section {
@@ -233,7 +244,7 @@ footer {
   }
 
   section {
-    border:1px solid var(--bg-color);;
+    border:1px solid var(--bg-color);
     border-width:1px 0;
     padding:20px 0;
     margin:0 0 20px;
