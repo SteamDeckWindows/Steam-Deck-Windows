@@ -6,6 +6,7 @@ layout: default
 
 ### Goals
 The main goal for this project is to make the following easy for Steam Deck owners running Windows:
+- Install official drivers from [Valve](https://steamdeck-packages.steamos.cloud/misc/windows/drivers/)
 - Install and setup [GlosSI](https://github.com/Alia5/GlosSI) (Rebind Steam Controls)
 - Install and configure [Emulation Station DE](https://gitlab.com/es-de/emulationstation-de)
 - Install and configure various emulators and tools
