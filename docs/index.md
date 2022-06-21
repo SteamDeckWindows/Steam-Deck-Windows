@@ -5,7 +5,7 @@ layout: default
 {{site.description}}
 
 ## Prerequisites
-You should have Windows 11 up and running [see guide](/Steam-Deck-Windows-Installer/install-windows-11)
+You should have Windows 11 up and running [see guide](/Steam-Deck-Windows/install-windows-11)
 
 ## Installing the tool
 - Download the latest release.
