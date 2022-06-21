@@ -133,41 +133,13 @@ tr:nth-child(even){
   color:var(--text-color);
   background-color: var(--even-row-bg-color);
 }
+
 .side-nav tr{
-  color:var(--text-color);
   background-color: transparent;
 }
 .side-nav td{
-  color:var(--bg-color);
-  background-color: var(--text-color);
+  background-color: transparent;
   font-size: 1.2rem;
-}
-.side-nav a, .side-nav a:visited{
-  color:var(--bg-color);
-}
-.side-nav{
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 0;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-}
-  
-.side-nav tr:first-of-type td:first-of-type {
-  border-top-left-radius: 4px;
-}
-
-.side-nav tr:first-of-type td:last-of-type {
-  border-top-right-radius: 4px;
-}
-
-.side-nav tr:last-of-type td:first-of-type {
-  border-bottom-left-radius: 4px;
-}
-
-.side-nav tr:last-of-type td:last-of-type {
-  border-bottom-right-radius: 4px;
 }
 
 img {
@@ -374,9 +346,7 @@ footer {
 }
 
 .btn:hover,
-.btn:focus,
-.side-nav td:hover,
-.side-nav td:focus {
+.btn:focus {
   opacity: .75;
 }
 
