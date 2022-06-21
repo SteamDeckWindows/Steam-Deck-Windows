@@ -25,8 +25,7 @@
           {% endfor %}
         </table>
         <button class="btn btn-toggle mb mt">Toggle Theme-Mode</button>
-        <h3 class="mt mb">Download theme</h3>
-        <p>This site was build using a customized variant of <a href="https://github.com/pages-themes/minimal"  target="_blank">jekyll-theme-minimal</a></p>
+        <h3 class="mt mb">Download</h3>
         {% if site.show_downloads %}
           <ul>
             <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
@@ -44,6 +43,7 @@
         {% if site.github.is_project_page %}
         <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
+        <p>This site was build using a customized variant of <a href="https://github.com/pages-themes/minimal"  target="_blank">jekyll-theme-minimal</a></p>
       </footer>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
