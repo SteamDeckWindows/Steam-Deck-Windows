@@ -1,3 +1,7 @@
+layout: page
+title: "Guide on how to install Windows 11 on your Steam Deck"
+permalink: /guide-on-how-to-install-windows-11-on-your-steam-deck
+
 # Guide on how to install Windows 11 on your Steam Deck
 
 ## Requirements
