@@ -1,10 +1,12 @@
 body {
   --text-color: #202020;
   --bg-color: #e5e5e5;
+  --even-row-bg-color: #bcbcbc;
 }
 body.dark-theme {
   --text-color: #e5e5e5;
   --bg-color: #202020;
+  --even-row-bg-color: #414141;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,10 +14,12 @@ body.dark-theme {
   body {
     --text-color: #e5e5e5;
     --bg-color: #202020;
+    --even-row-bg-color: #414141;
   }
   body.light-theme {
     --text-color: #202020;
     --bg-color: #e5e5e5;
+    --even-row-bg-color: #bcbcbc;
   }
 }
 
@@ -108,7 +112,6 @@ table {
 th, td {
   text-align:left;
   padding:5px 10px;
-  border-bottom:1px solid var(--bg-color);
 }
 
 dt {
@@ -128,7 +131,14 @@ tr {
 
 tr:nth-child(even){
   color:var(--text-color);
-  background-color: darken(var(--bg-color), 0.3);
+  background-color: var(--even-row-bg-color);
+}
+.side-nav tr{
+  color:var(--bg-color);
+  background-color: var(--text-color);
+}
+.side-nav a, .side-nav a:visited{
+  color:var(--bg-color);
 }
 
 img {
