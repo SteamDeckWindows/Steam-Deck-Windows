@@ -7,5 +7,9 @@ navigation:
     url: /
   - title: Install Windows 11
     url: install-windows-11
+  - title: Emulators
+    url: emulators
+  - title: Hotkeys
+    url: hotkeys
   - title: Developer Guide
     url: developer-guide

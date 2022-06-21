@@ -10,7 +10,6 @@ The main goal for this project is to make the following easy for Steam Deck owne
 - Install and configure [Emulation Station DE](https://gitlab.com/es-de/emulationstation-de)
 - Install and configure various emulators
 - Install and configure [Steam Rom Manager](https://steamgriddb.github.io/steam-rom-manager/)
-- 
 
 ## Prerequisites
 You should have Windows 11 up and running [please read this guide if you need help with installing](/Steam-Deck-Windows/install-windows-11).
