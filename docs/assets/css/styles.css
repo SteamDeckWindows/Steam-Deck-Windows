@@ -375,8 +375,8 @@ footer {
 
 .btn:hover,
 .btn:focus,
-td:hover,
-td:focus {
+.side-nav td:hover,
+.side-nav td:focus {
   opacity: .75;
 }
 
