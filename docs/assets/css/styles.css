@@ -134,6 +134,10 @@ tr:nth-child(even){
   background-color: var(--even-row-bg-color);
 }
 .side-nav tr{
+  color:var(--text-color);
+  background-color: transparent;
+}
+.side-nav td{
   color:var(--bg-color);
   background-color: var(--text-color);
 }
