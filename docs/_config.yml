@@ -1,4 +1,4 @@
-theme: jekyll-theme-minimal
+theme: jekyll-theme-minimal-steam-deck-windows
 title: Steam Deck Windows
 description: This tool will help you setup and configure Windows 11 on your steam deck
 show_downloads: True
@@ -7,3 +7,5 @@ navigation:
     url: /
   - title: Install Windows 11
     url: install-windows-11
+  - title: Developer Guide
+    url: developer-guide
