@@ -140,6 +140,7 @@ tr:nth-child(even){
 .side-nav td{
   color:var(--bg-color);
   background-color: var(--text-color);
+  font-size: 1.2rem;
 }
 .side-nav a, .side-nav a:visited{
   color:var(--bg-color);
@@ -153,7 +154,7 @@ tr:nth-child(even){
   -webkit-border-radius: 4px;
 }
   
-.side-nav tr:first-of-type {
+.side-nav tr:first-of-type td:first-of-type {
   border-top-left-radius: 4px;
 }
 
@@ -171,6 +172,7 @@ tr:nth-child(even){
 
 img {
   max-width:100%;
+  border-radius: 4px;
 }
 
 header {
