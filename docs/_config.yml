@@ -7,5 +7,3 @@ navigation:
     url: /
   - title: Install Windows 11
     url: install-windows-11
-  - title: Setup
-    url: setup
