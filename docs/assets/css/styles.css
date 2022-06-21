@@ -290,11 +290,12 @@ footer {
   }
 }
 
+.mb{ margin-bottom: 0.5rem;}
+.mt{ margin-top: 0.5rem;}
+.mr{ margin-right: 0.5rem;}
+.ml{ margin-left: 0.5rem;}
 
-<!-- HTML !-->
-<button class="button-31" role="button">Button 31</button>
-
-/* CSS */
+/* Controls */
 .btn {
   background-color: var(--text-color);
   border-radius: 4px;
@@ -326,3 +327,4 @@ footer {
 .btn:focus {
   opacity: .75;
 }
+
