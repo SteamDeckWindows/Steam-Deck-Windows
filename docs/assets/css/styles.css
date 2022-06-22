@@ -83,7 +83,14 @@ a:hover small {
   width:1080px;
   margin:0 auto;
 }
-
+.clearfix {
+  overflow: auto;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 blockquote {
   border-left:1px solid var(--bg-color);
   margin:0;
@@ -150,7 +157,6 @@ img {
 header {
   width:270px;
   float:left;
-  position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
@@ -233,7 +239,6 @@ hr {
 footer {
   width:270px;
   float:left;
-  position:fixed;
   bottom:50px;
   -webkit-font-smoothing:subpixel-antialiased;
 }
