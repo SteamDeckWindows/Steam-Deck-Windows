@@ -18,7 +18,9 @@ You should have Windows 11 up and running [please read this guide if you need he
 ## Installing the tool
 - [Download Installer](https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/install/SteamDeckWindowsSetup.exe).
 - Install **Steam Deck Windows** tool using "SteamDeckWindowsSetup.exe"
+
 Note: It will currently display some warnings about not beeing signed. We will get to that later but for now our focus is getting app to do stuff for us.
+
 
 ## Updating
 - Open the Steam Deck Window Tool it will automatically update.
