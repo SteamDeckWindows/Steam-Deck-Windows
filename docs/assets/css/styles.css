@@ -27,7 +27,12 @@ body.dark-theme {
   .light-theme .logo-dark{
     display: none;
   }
-
+  .dark-theme .logo-dark{
+    display: block;
+  }
+  .light-theme .logo-light{
+    display: block;
+  }
 }
 
 
