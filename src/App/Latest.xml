@@ -2,6 +2,6 @@
 <item>
 	<version>0.0.0.1</version>
 	<url>https://rbsoft.org/downloads/AutoUpdaterTest.zip</url>
-	<changelog>https://github.com/ravibpatel/AutoUpdater.NET/releases</changelog>
-	<mandatory>false</mandatory>
+	<changelog>https://github.com/SteamDeckWindows/Steam-Deck-Windows/releases</changelog>
+	<mandatory mode="2">true</mandatory>
 </item>
