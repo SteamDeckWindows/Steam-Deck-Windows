@@ -1,15 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-	<Version>0.0.0.3</Version>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <SignAssembly>False</SignAssembly>
-    <StartupObject>SteamDeckWindows.App</StartupObject>
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<SignAssembly>False</SignAssembly>
+		<StartupObject>SteamDeckWindows.App</StartupObject>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<Deterministic>False</Deterministic>
+	</PropertyGroup>
 	<PropertyGroup>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<ApplicationIcon>logo.ico</ApplicationIcon>

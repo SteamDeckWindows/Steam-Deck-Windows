@@ -9,10 +9,11 @@
         Title="Steam Deck Windows" Height="800" Width="1280">
     <Grid>
         <Button x:Name="DownLoadDrivers" Content="Drivers" HorizontalAlignment="Left" Margin="80,266,0,0" VerticalAlignment="Top" Click="DownLoadDrivers_Click" Width="241" Height="37" Background="#FF151515" Foreground="White"/>
-        <ProgressBar x:Name="SubProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,690,0,0" VerticalAlignment="Top" Width="1238" RenderTransformOrigin="0.5,-1.355"/>
-        <Label x:Name="SubProgressLabel" Content="Label" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="1237" Margin="0,659,0,0" Foreground="White"/>
-        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,744,0,0" VerticalAlignment="Top" Width="1238" RenderTransformOrigin="0.5,-1.355"/>
-        <Label x:Name="ProgressLabel" Content="Label" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="1237" Margin="0,713,0,0" Foreground="White"/>
+        <ProgressBar x:Name="SubProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,621,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355"/>
+        <Label x:Name="SubProgressLabel" Content="Label" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="0,590,0,0" Foreground="White"/>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,675,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355"/>
+        <Label x:Name="ProgressLabel" Content="Label" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="0,644,0,0" Foreground="White"/>
+        <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="977,722,55,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Window>
