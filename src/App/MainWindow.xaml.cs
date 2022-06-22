@@ -13,7 +13,7 @@ namespace SteamDeckWindows
         public MainWindow()
         {
             InitializeComponent();
-            AutoUpdater.Start("https://github.com/SteamDeckWindows/Steam-Deck-Windows/blob/main/updates/latest.xml");
+            AutoUpdater.Start("https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/updates/latest.xml");
         }
 
         private async void DownLoadDrivers_Click(object sender, RoutedEventArgs e)
