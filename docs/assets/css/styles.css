@@ -21,6 +21,18 @@ body.dark-theme {
     --bg-color: #e5e5e5;
     --even-row-bg-color: #bcbcbc;
   }
+  .logo-dark{
+    display: block;
+  }
+  .logo-light{
+    display: none;
+  }
+  .logo-dark.light-theme{
+    display: none;
+  }
+  .logo-light.light-theme{
+    display: block;
+  }
 }
 
 body {

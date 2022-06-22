@@ -32,7 +32,8 @@
     <div class="wrapper clearfix">
       <header>
         <!-- <h1>{{ site.title | default: site.github.repository_name }}</h1> -->
-        <img src="{{ 'assets/img/steam-deck-windows.jpg?v=' | append: site.github.build_revision | relative_url }}" style="width: 100%;" alt="logo" />
+        <img src="{{ 'assets/img/logo-dark.png?v=' | append: site.github.build_revision | relative_url }}" style="width: 100%;" alt="logo" class="logo-dark" />
+        <img src="{{ 'assets/img/logo.png?v=' | append: site.github.build_revision | relative_url }}" style="width: 100%;" alt="logo" class="logo-light" />
         <p>{{ site.description | default: site.github.project_tagline }}</p>
         <table class="side-nav">
           {% for nav in site.navigation %}
