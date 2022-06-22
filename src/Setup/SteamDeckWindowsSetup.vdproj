@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_5EE61FBDA6044A38B613BC3AB257361A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A555C5C51A7446718B4ACC1D0F1FED67"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -121,6 +127,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5EE61FBDA6044A38B613BC3AB257361A"
+            {
+            "SourcePath" = "8:..\\logo.ico"
+            "TargetName" = "8:logo.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B22E8B449F454283A02A2AF5104FFB38"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:TRUE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -178,7 +204,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamDeckWindows"
         "ProductCode" = "8:{81C646CC-C916-46B8-8C87-D0FD0D8D1FD3}"
-        "PackageCode" = "8:{FF0F875C-FFCB-493D-8A1A-64D395557EC0}"
+        "PackageCode" = "8:{D2A0AC69-3ED9-4246-AB7E-713590B61ADE}"
         "UpgradeCode" = "8:{22FC34E7-6A93-4CDE-9D79-1DEA9ECE2BF0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -195,7 +221,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_5EE61FBDA6044A38B613BC3AB257361A"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -309,7 +335,7 @@
             "Target" = "8:_A555C5C51A7446718B4ACC1D0F1FED67"
             "Folder" = "8:_366E650B4A49474DA7FC471950C5D383"
             "WorkingFolder" = "8:_B22E8B449F454283A02A2AF5104FFB38"
-            "Icon" = "8:"
+            "Icon" = "8:_5EE61FBDA6044A38B613BC3AB257361A"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F94AA07ED6D444FBAA4C2AE30026DFDB"
@@ -323,7 +349,7 @@
             "Target" = "8:_A555C5C51A7446718B4ACC1D0F1FED67"
             "Folder" = "8:_5A02E64792834CE5AF08CB3AF666BD79"
             "WorkingFolder" = "8:_B22E8B449F454283A02A2AF5104FFB38"
-            "Icon" = "8:"
+            "Icon" = "8:_5EE61FBDA6044A38B613BC3AB257361A"
             "Feature" = "8:"
             }
         }
@@ -737,7 +763,7 @@
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
+            "Permanent" = "11:TRUE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"

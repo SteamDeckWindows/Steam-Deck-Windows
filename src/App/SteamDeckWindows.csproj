@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-	<Version>0.0.0.1</Version>
+	<Version>0.0.0.3</Version>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <SignAssembly>False</SignAssembly>
@@ -12,7 +12,14 @@
 
 	<PropertyGroup>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+		<ApplicationIcon>logo.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="logo.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autoupdater.NET.Official" Version="1.7.3" />

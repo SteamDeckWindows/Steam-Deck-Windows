@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <item>
-	<version>0.0.0.2</version>
+	<version>0.0.0.3</version>
 	<url>https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/updates/latest.zip</url>
 	<changelog>https://github.com/SteamDeckWindows/Steam-Deck-Windows/releases</changelog>
-	<mandatory mode="1" minVersion="0.0.0.2">true</mandatory>
+	<mandatory mode="2">true</mandatory>
 </item>
