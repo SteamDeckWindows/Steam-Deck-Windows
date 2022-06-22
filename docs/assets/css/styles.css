@@ -24,14 +24,14 @@ body.dark-theme {
   .dark-theme .logo-light{
     display: none;
   }
-  .light-theme .logo-dark{
-    display: none;
-  }
   .dark-theme .logo-dark{
     display: block;
   }
   .light-theme .logo-light{
     display: block;
+  }
+  .light-theme .logo-dark{
+    display: none;
   }
 }
 
