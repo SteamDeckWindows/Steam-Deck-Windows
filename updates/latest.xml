@@ -3,5 +3,5 @@
 	<version>0.0.0.1</version>
 	<url>https://github.com/SteamDeckWindows/Steam-Deck-Windows/blob/main/updates/latest.zip</url>
 	<changelog>https://github.com/SteamDeckWindows/Steam-Deck-Windows/releases</changelog>
-	<mandatory mode="2">true</mandatory>
+	<mandatory mode="1" minVersion="0.0.0.1">true</mandatory>
 </item>
