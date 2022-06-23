@@ -251,10 +251,9 @@ hr {
 }
 
 footer {
-  width:270px;
-  float:left;
-  bottom:50px;
-  -webkit-font-smoothing:subpixel-antialiased;
+  width:100%;
+  margin-bottom:2rem;
+  margin-top: 2rem;
 }
 
 @media print, screen and (max-width: 960px) {
