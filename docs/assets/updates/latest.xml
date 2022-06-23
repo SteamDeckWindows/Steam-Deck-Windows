@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <item>
-	<version>0.0.0.3</version>
-	<url>https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/updates/latest.zip</url>
-	<changelog>https://github.com/SteamDeckWindows/Steam-Deck-Windows/releases</changelog>
-	<mandatory mode="2">true</mandatory>
+  <version>1.0.0.36970</version>
+  <url>https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/updates/latest.zip</url>
+  <changelog>https://github.com/SteamDeckWindows/Steam-Deck-Windows/releases</changelog>
+  <mandatory mode="2">true</mandatory>
 </item>
