@@ -28,4 +28,14 @@
     <PackageReference Include="Autoupdater.NET.Official" Version="1.7.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Clients\" />
+    <None Remove="Clients\Models\" />
+    <None Remove="Clients\Models\Github\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Clients\" />
+    <Folder Include="Clients\Models\" />
+    <Folder Include="Clients\Models\Github\" />
+  </ItemGroup>
 </Project>

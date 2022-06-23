@@ -11,6 +11,8 @@ namespace SteamDeckWindows.Extensions
 {
     public static class HttpClientExtensions
     {
+        // Use the custom extension method below to download the data.
+        // The passed progress-instance will receive the download status updates.
         public static async Task DownloadAsync(this HttpClient client, string requestUri, Stream destination, IProgress<float>? progress = null, CancellationToken cancellationToken = default)
         {
             // Get the http headers first to examine the content length
