@@ -49,14 +49,12 @@ namespace SteamDeckWindows.Services
             Progress<float> progress = new Progress<float>();
             System.Threading.CancellationToken cancellationToken = default;
 
-            //Gets download progress - pgrBarDowload is our Progress Bar
+            //Gets download progress
             progress.ProgressChanged += (sender, value) =>
             {
                 progressBar.Value = (int)(value * 100);
             };
 
-            // Use the custom extension method below to download the data.
-            // The passed progress-instance will receive the download status updates.
             await client.DownloadAsync(driversUrl + file, f, progress, cancellationToken);
         }
     }
