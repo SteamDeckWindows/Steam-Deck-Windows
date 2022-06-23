@@ -21,21 +21,20 @@ body.dark-theme {
     --bg-color: #e5e5e5;
     --even-row-bg-color: #bcbcbc;
   }
-  .dark-theme .logo-light{
-    display: none;
-  }
-  .dark-theme .logo-dark{
-    display: block;
-  }
-  .light-theme .logo-light{
-    display: block;
-  }
-  .light-theme .logo-dark{
-    display: none;
-  }
 }
 
-
+.dark-theme .logo-light{
+  display: none;
+}
+.dark-theme .logo-dark{
+  display: block;
+}
+.light-theme .logo-light{
+  display: block;
+}
+.light-theme .logo-dark{
+  display: none;
+}
 
 body {
   background-color:var(--bg-color);
