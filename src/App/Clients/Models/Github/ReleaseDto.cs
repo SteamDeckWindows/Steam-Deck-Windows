@@ -7,7 +7,7 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class Release
+    public partial class ReleaseDto
     {
         [JsonProperty("url")]
         public Uri Url { get; set; }

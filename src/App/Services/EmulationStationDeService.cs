@@ -13,6 +13,9 @@ namespace SteamDeckWindows.Services
 {
     public class EmulationStationDeService : IEmulationStationDeService
     {
-        
+        public Task DownloadLatest()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

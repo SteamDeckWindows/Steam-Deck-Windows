@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace SteamDeckWindows.Services
 {
-    public interface IDriverService
+    public interface IEmulationStationDeService
     {
         Task DownloadLatest();
     }
