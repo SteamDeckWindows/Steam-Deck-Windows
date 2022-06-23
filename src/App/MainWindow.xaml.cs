@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using AutoUpdaterDotNET;
 using System.Reflection;
+using System;
 
 namespace SteamDeckWindows
 {
@@ -18,7 +19,7 @@ namespace SteamDeckWindows
             GetVersion();
         }
 
-        private async void DownLoadDrivers_Click(object sender, RoutedEventArgs e)
+        private async void Update_Click(object sender, RoutedEventArgs e)
         {
             Task task = new DriverService().DownloadDrivers(ProgressBar, SubProgressBar, ProgressLabel, SubProgressLabel);
             await task;
@@ -28,6 +29,13 @@ namespace SteamDeckWindows
         {
             lblVersion.Content = "Version " + GetType().Assembly.GetName().Version;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new SettingsWindow();
+            window.Owner = this;
+            window.ShowDialog();
         }
     }
 }
