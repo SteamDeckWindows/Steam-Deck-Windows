@@ -15,7 +15,7 @@
         <Label x:Name="ProgressLabel" Content="Total Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="0,644,0,0" Foreground="White"/>
         <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="984,722,48,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tbStatus" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" Height="472" Margin="0,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1170" Background="#FF151515" BorderBrush="#FF707070" IsEnabled="False"/>
-        <Button Content="Settings" HorizontalAlignment="Left" Margin="48,726,0,0" VerticalAlignment="Top" Width="98" Background="#FF151515" Foreground="White" Click="Button_Click"/>
+        <Button Content="Settings" HorizontalAlignment="Left" Margin="48,726,0,0" VerticalAlignment="Top" Width="98" Background="#FF151515" Foreground="White" Click="Settings_Click"/>
 
     </Grid>
 </Window>

@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Windows;
 using AutoUpdaterDotNET;
-using System.Reflection;
 using System;
 
 namespace SteamDeckWindows
@@ -31,11 +30,20 @@ namespace SteamDeckWindows
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new SettingsWindow();
-            window.Owner = this;
-            window.ShowDialog();
+            try
+            {
+                Window window = new SettingsWindow
+                {
+                    Owner = this
+                };
+                window.ShowDialog();
+            }
+            catch(Exception error) {
+                MessageBox.Show(error.Message);
+            
+            }
         }
     }
 }
