@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SteamDeckWindows"
         mc:Ignorable="d"
         Background="Black"
-        Title="Settings" Height="450" Width="800" Icon="/logo.ico" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+        Title="Settings" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid>
         <Button x:Name="btnSave" Content="Save and Close" HorizontalAlignment="Center" Margin="0,398,0,0" VerticalAlignment="Top" Click="btnSave_Click" Width="746" Height="33" Background="#FF151515" Foreground="White"/>
 
