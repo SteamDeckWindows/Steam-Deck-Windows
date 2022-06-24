@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SteamDeckWindows"
         mc:Ignorable="d"
         Background="Black"
-        Title="Steam Deck Windows" Height="718" Width="1280" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
+        Title="Steam Deck Windows" Height="718" Width="1280" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid Margin="0,0,0,5">
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="48,422,0,0" VerticalAlignment="Top" Click="Update_Click" Width="1170" Height="49" Background="#FF013B07" Foreground="White" FontSize="14" FontWeight="Bold">
             <Button.Style>
@@ -34,7 +34,7 @@
         <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="33" Margin="48,561,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF0B0B0B" BorderBrush="Black"/>
         <Label x:Name="ProgressLabel" Content="Total Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="48,530,62,0" Foreground="White"/>
         <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="970,608,62,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="tbStatus" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="379" Margin="48,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1170" Background="#FF151515" BorderBrush="#FF707070" IsEnabled="False"/>
+        <TextBox x:Name="tbStatus" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="379" Margin="48,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1170" Background="#FF151515" BorderBrush="#FF707070" IsEnabled="False" Foreground="White"/>
         <Button Content="Settings" HorizontalAlignment="Left" Margin="1120,10,0,0" VerticalAlignment="Top" Width="98" Background="#FF151515" Foreground="White" Click="Settings_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

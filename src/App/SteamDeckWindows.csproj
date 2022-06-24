@@ -22,6 +22,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Include="base_database.db">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	  <Content Include="logo.ico">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
@@ -29,10 +32,17 @@
 
   <ItemGroup>
     <PackageReference Include="Autoupdater.NET.Official" Version="1.7.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="base_database.db" />
     <None Remove="Clients\" />
     <None Remove="Clients\Models\" />
     <None Remove="Clients\Models\Github\" />

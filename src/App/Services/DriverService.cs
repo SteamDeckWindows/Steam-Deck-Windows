@@ -35,6 +35,7 @@ namespace SteamDeckWindows.Services
                 var file = files[i];
                 subProgressLabel.Content = "Downloading file " + (i+1).ToString() + " of " + files.Count().ToString() + " filename - " + file;
                 await GetFile(file, subProgressBar);
+
             }
         }
 
