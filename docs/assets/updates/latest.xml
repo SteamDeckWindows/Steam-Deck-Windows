@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <item>
-  <version>1.0.0.41008</version>
+  <version>1.0.0.41207</version>
   <url>https://raw.githubusercontent.com/SteamDeckWindows/Steam-Deck-Windows/main/docs/assets/updates/latest.zip</url>
   <changelog>https://github.com/SteamDeckWindows/Steam-Deck-Windows/releases</changelog>
   <mandatory mode="2">true</mandatory>
