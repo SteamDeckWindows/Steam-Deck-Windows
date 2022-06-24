@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:SteamDeckWindows"
         mc:Ignorable="d"
         Background="Black"
-        Title="Steam Deck Windows" Height="800" Width="1280">
-    <Grid>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Center" Margin="0,536,0,0" VerticalAlignment="Top" Click="Update_Click" Width="1170" Height="49" Background="#FF151515" Foreground="White"/>
-        <ProgressBar x:Name="SubProgressBar" HorizontalAlignment="Center" Height="17" Margin="0,621,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF151515" BorderBrush="#FF707070"/>
-        <Label x:Name="SubProgressLabel" Content="Subtask Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="0,590,0,0" Foreground="White"/>
-        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="33" Margin="0,675,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF151515" BorderBrush="#FF707070"/>
-        <Label x:Name="ProgressLabel" Content="Total Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="0,644,0,0" Foreground="White"/>
-        <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="984,722,48,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="tbStatus" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" Height="472" Margin="0,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1170" Background="#FF151515" BorderBrush="#FF707070" IsEnabled="False"/>
-        <Button Content="Settings" HorizontalAlignment="Left" Margin="48,726,0,0" VerticalAlignment="Top" Width="98" Background="#FF151515" Foreground="White" Click="Settings_Click"/>
+        Title="Steam Deck Windows" Height="676" Width="1280">
+    <Grid Margin="0,0,0,16">
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="62,423,0,0" VerticalAlignment="Top" Click="Update_Click" Width="1170" Height="49" Background="#FF151515" Foreground="White"/>
+        <ProgressBar x:Name="SubProgressBar" HorizontalAlignment="Left" Height="17" Margin="62,508,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF151515" BorderBrush="#FF707070"/>
+        <Label x:Name="SubProgressLabel" Content="Subtask Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="62,477,48,0" Foreground="White"/>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="33" Margin="62,562,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF151515" BorderBrush="#FF707070"/>
+        <Label x:Name="ProgressLabel" Content="Total Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="62,531,48,0" Foreground="White"/>
+        <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="991,609,41,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="tbStatus" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" Height="379" Margin="0,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1170" Background="#FF151515" BorderBrush="#FF707070" IsEnabled="False"/>
+        <Button Content="Settings" HorizontalAlignment="Left" Margin="1127,10,0,0" VerticalAlignment="Top" Width="98" Background="#FF151515" Foreground="White" Click="Settings_Click"/>
 
     </Grid>
 </Window>
