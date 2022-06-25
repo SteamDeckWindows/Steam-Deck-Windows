@@ -19,7 +19,7 @@ namespace SteamDeckWindows
             _host = Host.CreateDefaultBuilder()
                 .UseSerilog((host, loggerConfiguration) =>
                 {
-                    loggerConfiguration.WriteTo.File($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\log.txt", rollingInterval: RollingInterval.Day)
+                    loggerConfiguration.WriteTo.File($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SteamDeckWindows\\log.txt", rollingInterval: RollingInterval.Day)
                         .WriteTo.Debug()
                         .MinimumLevel.Error()
                         .MinimumLevel.Override("SteamDeckWindows.Commands", Serilog.Events.LogEventLevel.Debug);
