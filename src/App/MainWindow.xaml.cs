@@ -19,7 +19,7 @@ namespace SteamDeckWindows
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly DatabaseContext _context = new DatabaseContext();
+        private readonly DatabaseContext db = new DatabaseContext();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,19 +34,24 @@ namespace SteamDeckWindows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Run migrations
-            _context.Database.MigrateAsync();
+            db.Database.MigrateAsync();
 
             // load the entities into EF Core
-            _context.Settings.Load();
+            db.Settings.Load();
 
-            //TODO Should be replaced ny seed methods
-            //_context.Add(new Setting{
-            //    Name="Default",
-            //    SettingId=1
-            //});
-            //_context.SaveChanges();
+            //TODO Should be replaced by seed methods
+            if(db.Settings.FirstOrDefault() == null)
+            {
+                db.Add(new Setting
+                {
+                    Name = "Default",
+                    SettingId = 1
+                });
+                db.SaveChanges();
+            }
 
-            tbStatus.Text = _context.Settings.FirstOrDefault()?.Name;
+            AddStatus("Welcome to Steam Deck Windows") ;
+            AddStatus(db.Settings.First().Name);
             // bind to the source
             //categoryViewSource.Source =
             //    _context.Categories.Local.ToObservableCollection();
@@ -55,7 +60,7 @@ namespace SteamDeckWindows
         protected override void OnClosing(CancelEventArgs e)
         {
             // clean up database connections
-            _context.Dispose();
+            db.Dispose();
             base.OnClosing(e);
         }
 
@@ -85,6 +90,11 @@ namespace SteamDeckWindows
                 MessageBox.Show(error.Message);
             
             }
+        }
+
+        private void AddStatus(string text)
+        {
+            tbStatus.Text += $"{text}\r\n";
         }
     }
 }

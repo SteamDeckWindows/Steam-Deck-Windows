@@ -54,7 +54,7 @@
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/install/"
+            "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -230,7 +230,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamDeckWindows"
         "ProductCode" = "8:{81C646CC-C916-46B8-8C87-D0FD0D8D1FD3}"
-        "PackageCode" = "8:{DC0C6924-F102-435C-95BB-59F0CD4DF980}"
+        "PackageCode" = "8:{24759924-AAFA-4314-BC61-E40E0F5E2A2B}"
         "UpgradeCode" = "8:{22FC34E7-6A93-4CDE-9D79-1DEA9ECE2BF0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
