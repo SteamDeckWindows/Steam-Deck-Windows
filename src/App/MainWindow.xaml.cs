@@ -28,14 +28,6 @@ namespace SteamDeckWindows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             AutoUpdater.Start("https://raw.githubusercontent.com/SteamDeckWindows/Steam-Deck-Windows/main/docs/assets/updates/latest.xml");
-            // Copy base_database.db if not allready created in user appdata
-            string databasePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SteamDeckWindows\\";
-            Directory.CreateDirectory(databasePath);
-            if (!File.Exists($"{databasePath}database.db"))
-            {
-                var baseDbPath = AppDomain.CurrentDomain.BaseDirectory + "\\base_database.db";
-                File.Copy(baseDbPath, $"{databasePath}database.db");
-            }
 
             //Run migrations
             _context.Database.MigrateAsync();

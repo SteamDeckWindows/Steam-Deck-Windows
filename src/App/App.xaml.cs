@@ -5,6 +5,7 @@ using Serilog;
 using SteamDeckWindows.Commands;
 using SteamDeckWindows.ViewModels;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,6 +17,15 @@ namespace SteamDeckWindows
 
         public App()
         {
+            // Copy base_database.db if not allready created in user appdata
+            string databasePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SteamDeckWindows\\";
+            Directory.CreateDirectory(databasePath);
+            if (!File.Exists($"{databasePath}database.db"))
+            {
+                var baseDbPath = AppDomain.CurrentDomain.BaseDirectory + "\\base_database.db";
+                File.Copy(baseDbPath, $"{databasePath}database.db");
+            }
+
             _host = Host.CreateDefaultBuilder()
                 .UseSerilog((host, loggerConfiguration) =>
                 {
