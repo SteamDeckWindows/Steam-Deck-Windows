@@ -42,7 +42,7 @@ namespace SteamDeckWindows
             _host.Start();
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
-            MainWindow.Show();
+            //MainWindow.Show();
 
             base.OnStartup(e);
         }
