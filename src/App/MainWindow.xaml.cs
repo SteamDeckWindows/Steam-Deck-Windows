@@ -42,7 +42,7 @@ namespace SteamDeckWindows
             //});
             //_context.SaveChanges();
 
-            tbStatus.Text = _context.Settings.First().Name;
+            tbStatus.Text = _context.Settings.FirstOrDefault()?.Name;
 
             // bind to the source
             //categoryViewSource.Source =
