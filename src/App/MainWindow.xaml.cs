@@ -23,7 +23,11 @@ namespace SteamDeckWindows
         public MainWindow()
         {
             InitializeComponent();
+        #if DEBUG
+        #else
             AutoUpdater.Start("https://raw.githubusercontent.com/SteamDeckWindows/Steam-Deck-Windows/main/docs/assets/updates/latest.xml");
+        #endif
+
             GetVersion();
         }
 
