@@ -9,6 +9,7 @@ using System.IO;
 using SteamDeckWindows.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace SteamDeckWindows
 {
@@ -19,8 +20,10 @@ namespace SteamDeckWindows
     public partial class MainWindow : Window
     {
         private readonly DatabaseContext _context = new DatabaseContext();
-        public MainWindow()
+        private readonly ILogger _logger;
+        public MainWindow(ILogger logger)
         {
+            _logger = logger;
             InitializeComponent();
             AutoUpdater.Start("https://raw.githubusercontent.com/SteamDeckWindows/Steam-Deck-Windows/main/docs/assets/updates/latest.xml");
             GetVersion();
@@ -28,6 +31,7 @@ namespace SteamDeckWindows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            _logger.LogInformation("Running database updates");
             //Run migrations
             _context.Database.MigrateAsync();
 
@@ -42,7 +46,6 @@ namespace SteamDeckWindows
             //_context.SaveChanges();
 
             tbStatus.Text = _context.Settings.FirstOrDefault()?.Name;
-
             // bind to the source
             //categoryViewSource.Source =
             //    _context.Categories.Local.ToObservableCollection();
