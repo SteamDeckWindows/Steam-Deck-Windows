@@ -16,7 +16,7 @@ The main goal for this project is to make the following easy for Steam Deck owne
 You should have Windows 11 up and running [please read this guide if you need help with installing](/Steam-Deck-Windows/install-windows-11).
 
 ## Installing the tool
-- [Download Installer](https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/install/SteamDeckWindowsSetup.exe).
+- [Download Installer](https://steamdeckwindows.github.io/Steam-Deck-Windows/assets/install/SteamDeckWindowsSetup.zip).
 - Install **Steam Deck Windows** tool using "SteamDeckWindowsSetup.exe"
 
 Note: It will currently display some warnings about not beeing signed. We will get to that later but for now our focus is getting app to do stuff for us.
