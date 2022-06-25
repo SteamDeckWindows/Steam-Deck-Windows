@@ -95,6 +95,11 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.6.0.x64"
+                    {
+                    "Name" = "8:.NET Runtime 6.0.6 (x64)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.6.0.x64"
+                    }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.6.0.x64"
                     {
                     "Name" = "8:.NET Desktop Runtime 6.0.6 (x64)"
@@ -230,7 +235,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamDeckWindows"
         "ProductCode" = "8:{81C646CC-C916-46B8-8C87-D0FD0D8D1FD3}"
-        "PackageCode" = "8:{E94484F6-C0E4-4B1C-A53D-EDBB781C421E}"
+        "PackageCode" = "8:{5B7773E7-2C09-47C5-9DEB-E23ADEC0F1CF}"
         "UpgradeCode" = "8:{22FC34E7-6A93-4CDE-9D79-1DEA9ECE2BF0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
