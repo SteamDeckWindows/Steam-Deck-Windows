@@ -33,6 +33,7 @@
         <ScrollViewer x:Name="swEmulators" Margin="638,84,27,153" Foreground="White"/>
         <Label Content="Tools" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="118" Margin="27,240,0,0" Foreground="White"/>
         <Label Content="Emulators" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="118" Margin="638,56,0,0" Foreground="White"/>
+        <Button x:Name="btnInstallPath" Content="Button" HorizontalAlignment="Left" Margin="414,68,0,0" VerticalAlignment="Top" Click="btnInstallPath_Click"/>
 
     </Grid>
 </Window>

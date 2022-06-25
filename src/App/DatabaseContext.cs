@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SteamDeckWindows.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SteamDeckWindows
 {
@@ -12,6 +8,8 @@ namespace SteamDeckWindows
     {
         private readonly string databaseFullPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SteamDeckWindows\\database.db";
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<ToolSetting> ToolSettings { get; set; }
+        public DbSet<EmulatorSetting> EmulatorSettings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

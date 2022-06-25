@@ -20,10 +20,8 @@ namespace SteamDeckWindows
     public partial class MainWindow : Window
     {
         private readonly DatabaseContext _context = new DatabaseContext();
-        private readonly ILogger _logger;
-        public MainWindow(ILogger logger)
+        public MainWindow()
         {
-            _logger = logger;
             InitializeComponent();
             AutoUpdater.Start("https://raw.githubusercontent.com/SteamDeckWindows/Steam-Deck-Windows/main/docs/assets/updates/latest.xml");
             GetVersion();
@@ -31,7 +29,6 @@ namespace SteamDeckWindows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _logger.LogInformation("Running database updates");
             //Run migrations
             _context.Database.MigrateAsync();
 
