@@ -54,7 +54,7 @@
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:"
+            "Url" = "8:https://github.com/SteamDeckWindows/Steam-Deck-Windows/raw/main/docs/assets/install/"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -230,7 +230,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamDeckWindows"
         "ProductCode" = "8:{81C646CC-C916-46B8-8C87-D0FD0D8D1FD3}"
-        "PackageCode" = "8:{24759924-AAFA-4314-BC61-E40E0F5E2A2B}"
+        "PackageCode" = "8:{992CB9B7-F3E0-4C27-9DD7-F3ED3E29C6A9}"
         "UpgradeCode" = "8:{22FC34E7-6A93-4CDE-9D79-1DEA9ECE2BF0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -253,7 +253,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:cd $(SolutionDir)\\docs\\assets\\install\r\ndir\r\nIF EXIST SteamDeckWindowsSetup.exe DEL /F SteamDeckWindowsSetup.exe\r\nrename setup.exe SteamDeckWindowsSetup.exe\r\ntar.exe -a -c -f SteamDeckWindowsSetup.zip SteamDeckWindowsSetup.exe SteamDeckWindowsSetup.msi\r\ndel SteamDeckWindowsSetup.exe\r\ndel SteamDeckWindowsSetup.msi\r\ndir\r\nECHO Done!"
+        "PostBuildEvent" = "8:cd $(SolutionDir)\\docs\\assets\\install\r\ndir\r\nIF EXIST SteamDeckWindowsSetup.exe DEL /F SteamDeckWindowsSetup.exe\r\nrename setup.exe SteamDeckWindowsSetup.exe\r\ntar.exe -a -c -f SteamDeckWindowsSetup.zip SteamDeckWindowsSetup.exe\r\ndir\r\nECHO Done!"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
