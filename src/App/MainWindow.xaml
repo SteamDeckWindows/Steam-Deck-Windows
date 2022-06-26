@@ -10,10 +10,10 @@
     <Grid Margin="0,0,0,5">
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="48,422,0,0" VerticalAlignment="Top" Click="Update_Click" Width="1170" Height="49" FontSize="14" FontWeight="Bold"/>
         <ProgressBar x:Name="SubProgressBar" HorizontalAlignment="Left" Height="17" Margin="48,507,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF0B0B0B" BorderBrush="Black"/>
-        <Label x:Name="SubProgressLabel" Content="Subtask Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="48,476,62,0" Foreground="White"/>
+        <Label x:Name="SubProgressLabel" Content="Subtask Progress" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="1170" Margin="48,476,62,0" />
         <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="33" Margin="48,561,0,0" VerticalAlignment="Top" Width="1170" RenderTransformOrigin="0.5,-1.355" Background="#FF0B0B0B" BorderBrush="Black"/>
-        <Label x:Name="ProgressLabel" Content="Total Progress" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="1170" Margin="48,530,62,0" Foreground="White"/>
-        <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="970,608,62,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="ProgressLabel" Content="Total Progress" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="1170" Margin="48,530,62,0"/>
+        <Label x:Name="lblVersion" Content="Label" HorizontalContentAlignment="Right" Margin="1118,612,62,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="tbStatus" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="379" Margin="48,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1170" Background="#FF151515" BorderBrush="#FF707070" IsEnabled="False" Foreground="White"/>
         <Button Content="Settings" HorizontalAlignment="Left" Margin="48,10,0,0" VerticalAlignment="Top" Width="98" Click="Settings_Click" />
     </Grid>

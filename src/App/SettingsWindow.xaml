@@ -11,11 +11,9 @@
         <Button x:Name="btnSave" Content="Save and Close" HorizontalAlignment="Center" Margin="0,666,0,0" VerticalAlignment="Top" Click="btnSave_Click" Width="1240" Height="33" />
         <ScrollViewer x:Name="swTools" Margin="880,82,27,81" Foreground="White" BorderBrush="#FF939393" Background="#FF0C0C0C"/>
         <ScrollViewer x:Name="swEmulators" Margin="441,83,480,81" Foreground="White" Background="#FF0C0C0C" BorderBrush="#FF939393"/>
-        <Label Content="Tools" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="118" Margin="441,55,0,0" Foreground="White"/>
-        <Label Content="Emulators" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="118" Margin="880,55,0,0" Foreground="White"/>
-        <Label Content="Install path" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="118" Margin="20,51,0,0" Foreground="White" RenderTransformOrigin="0.148,0.587"/>
-        <Button x:Name="btnBrowsePath" Content="Browse" HorizontalAlignment="Left" Margin="326,83,0,0" VerticalAlignment="Top" Click="btnSave_Click" Width="63" />
-        <TextBox HorizontalAlignment="Left" Margin="20,82,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="301" Height="23" RenderTransformOrigin="0.5,0.5" Background="#FF1D1D1D" Foreground="White">
+        <Label Content="Install path" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Margin="13,40,0,0" FontSize="20" Height="37" Padding="0,5,5,5"/>
+        <Button x:Name="btnBrowsePath" Content="Browse" HorizontalAlignment="Left" Margin="326,83,0,0" VerticalAlignment="Top" Click="btnInstallPath_Click" Width="63" />
+        <TextBox HorizontalAlignment="Left" Margin="20,82,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="301" Height="20" RenderTransformOrigin="0.5,0.5" Background="#FF1D1D1D" Foreground="White">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -25,9 +23,25 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Label HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="301" Margin="20,155,0,0" Foreground="White" RenderTransformOrigin="0.148,0.587">
-            <CheckBox Content="Install drivers" Background="#FF2D2D2D" Foreground="White"/>
+        <Label HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="59" Margin="20,155,0,0" Foreground="White" RenderTransformOrigin="0.148,0.587">
+            <ToggleButton Content="Install drivers" Background="#FF2D2D2D" Foreground="White"/>
         </Label>
-
+        <Label Content="Install Drivers" HorizontalAlignment="Left" Margin="84,155,0,0" VerticalAlignment="Top" Width="237" Height="30"/>
+        <Label Content="General Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="20,118,0,0" FontSize="20" Height="37" Padding="0,5,5,5"/>
+        <Label Content="Tools" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="441,33,0,0" FontSize="20" Height="37" Padding="0,5,5,5"/>
+        <Label Content="Emulators" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="880,40,0,0" FontSize="20" Height="37" Padding="0,5,5,5"/>
+        <Label Content="RetroAchievements Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Margin="20,517,0,0" FontSize="20" Height="37" Padding="0,5,5,5"/>
+        <TextBox HorizontalAlignment="Left" Margin="102,559,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="142" Background="#FF1D1D1D" Foreground="White" Height="20"/>
+        <PasswordBox HorizontalAlignment="Left" Height="20" Margin="102,591,0,0" VerticalAlignment="Top" Width="142" Background="#FF1D1D1D" Foreground="White"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="20,559,0,0" VerticalAlignment="Top" Height="20" FontSize="10" Width="77" Padding="0,3,5,3"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="20,591,0,0" VerticalAlignment="Top" Height="20" FontSize="10" Width="77" Padding="0,3,5,3"/>
+        <Label HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="59" Margin="20,185,0,0" Foreground="White" RenderTransformOrigin="0.148,0.587">
+            <ToggleButton Content="Install drivers" Background="#FF2D2D2D" Foreground="White"/>
+        </Label>
+        <Label Content="Install/Update Emulation Station DE" HorizontalAlignment="Left" Margin="84,185,0,0" VerticalAlignment="Top" Width="237" Height="30"/>
+        <Label HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="59" Margin="20,215,0,0" Foreground="White" RenderTransformOrigin="0.148,0.587">
+            <ToggleButton Content="Install drivers" Background="#FF2D2D2D" Foreground="White"/>
+        </Label>
+        <Label Content="Reset Emulation Station DE settings" HorizontalAlignment="Left" Margin="84,215,0,0" VerticalAlignment="Top" Width="237" Height="30"/>
     </Grid>
 </Window>
