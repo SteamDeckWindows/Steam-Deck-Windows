@@ -10,6 +10,7 @@ using SteamDeckWindows.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
+using SteamDeckWindows.Data;
 
 namespace SteamDeckWindows
 {
@@ -33,25 +34,21 @@ namespace SteamDeckWindows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //db.Database.EnsureCreated();
             //Run migrations
             db.Database.MigrateAsync();
 
             // load the entities into EF Core
             db.Settings.Load();
 
-            //TODO Should be replaced by seed methods
-            if(db.Settings.FirstOrDefault() == null)
-            {
-                db.Add(new Setting
-                {
-                    Name = "Default",
-                    SettingId = 1
-                });
-                db.SaveChanges();
-            }
+            SeedSetting.SeedSettingsData(db);
 
             AddStatus("Welcome to Steam Deck Windows") ;
             AddStatus(db.Settings.First().Name);
+            foreach(var emu in db.EmulatorSettings.ToList())
+            {
+                AddStatus($"Settings for {emu.Name} Loaded");
+            }
             // bind to the source
             //categoryViewSource.Source =
             //    _context.Categories.Local.ToObservableCollection();

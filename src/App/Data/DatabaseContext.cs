@@ -2,7 +2,7 @@
 using SteamDeckWindows.Models;
 using System;
 
-namespace SteamDeckWindows
+namespace SteamDeckWindows.Data
 {
     public class DatabaseContext : DbContext
     {
@@ -15,6 +15,18 @@ namespace SteamDeckWindows
         {
             optionsBuilder.UseSqlite($"Data Source={databaseFullPath}");
             optionsBuilder.UseLazyLoadingProxies();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ToolSetting>()
+              .HasOne(s => s.Setting)
+              .WithMany(t => t.Tools)
+              .HasForeignKey(fk => fk.SettingId);
+            modelBuilder.Entity<EmulatorSetting>()
+              .HasOne(s => s.Setting)
+              .WithMany(t => t.Emulators)
+              .HasForeignKey(fk => fk.SettingId);
         }
     }
 }

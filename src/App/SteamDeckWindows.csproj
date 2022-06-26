@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="DatabaseContext.cs">
+    <Compile Update="Data\DatabaseContext.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>

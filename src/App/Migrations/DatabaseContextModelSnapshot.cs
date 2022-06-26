@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SteamDeckWindows;
+using SteamDeckWindows.Data;
 
 #nullable disable
 
@@ -39,7 +39,7 @@ namespace SteamDeckWindows.Migrations
 
                     b.HasIndex("SettingId");
 
-                    b.ToTable("EmulatorSetting");
+                    b.ToTable("EmulatorSettings");
                 });
 
             modelBuilder.Entity("SteamDeckWindows.Models.Setting", b =>
@@ -48,8 +48,23 @@ namespace SteamDeckWindows.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("InstallDrivers")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("InstallEmulationStationDe")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("ResetEmulationStationDe")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("RetroAchievementsPassword")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RetroAchievementsUsername")
                         .HasColumnType("TEXT");
 
                     b.HasKey("SettingId");
@@ -77,7 +92,7 @@ namespace SteamDeckWindows.Migrations
 
                     b.HasIndex("SettingId");
 
-                    b.ToTable("ToolSetting");
+                    b.ToTable("ToolSettings");
                 });
 
             modelBuilder.Entity("SteamDeckWindows.Models.EmulatorSetting", b =>

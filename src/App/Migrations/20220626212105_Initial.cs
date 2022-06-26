@@ -4,15 +4,30 @@
 
 namespace SteamDeckWindows.Migrations
 {
-    public partial class Settings : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Tool");
+            migrationBuilder.CreateTable(
+                name: "Settings",
+                columns: table => new
+                {
+                    SettingId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    InstallDrivers = table.Column<bool>(type: "INTEGER", nullable: false),
+                    InstallEmulationStationDe = table.Column<bool>(type: "INTEGER", nullable: false),
+                    ResetEmulationStationDe = table.Column<bool>(type: "INTEGER", nullable: false),
+                    RetroAchievementsUsername = table.Column<string>(type: "TEXT", nullable: true),
+                    RetroAchievementsPassword = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Settings", x => x.SettingId);
+                });
 
             migrationBuilder.CreateTable(
-                name: "EmulatorSetting",
+                name: "EmulatorSettings",
                 columns: table => new
                 {
                     EmulatorSettingId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -24,9 +39,9 @@ namespace SteamDeckWindows.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmulatorSetting", x => x.EmulatorSettingId);
+                    table.PrimaryKey("PK_EmulatorSettings", x => x.EmulatorSettingId);
                     table.ForeignKey(
-                        name: "FK_EmulatorSetting_Settings_SettingId",
+                        name: "FK_EmulatorSettings_Settings_SettingId",
                         column: x => x.SettingId,
                         principalTable: "Settings",
                         principalColumn: "SettingId",
@@ -34,7 +49,7 @@ namespace SteamDeckWindows.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ToolSetting",
+                name: "ToolSettings",
                 columns: table => new
                 {
                     ToolSettingId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -45,9 +60,9 @@ namespace SteamDeckWindows.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ToolSetting", x => x.ToolSettingId);
+                    table.PrimaryKey("PK_ToolSettings", x => x.ToolSettingId);
                     table.ForeignKey(
-                        name: "FK_ToolSetting_Settings_SettingId",
+                        name: "FK_ToolSettings_Settings_SettingId",
                         column: x => x.SettingId,
                         principalTable: "Settings",
                         principalColumn: "SettingId",
@@ -55,47 +70,26 @@ namespace SteamDeckWindows.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmulatorSetting_SettingId",
-                table: "EmulatorSetting",
+                name: "IX_EmulatorSettings_SettingId",
+                table: "EmulatorSettings",
                 column: "SettingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ToolSetting_SettingId",
-                table: "ToolSetting",
+                name: "IX_ToolSettings_SettingId",
+                table: "ToolSettings",
                 column: "SettingId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EmulatorSetting");
+                name: "EmulatorSettings");
 
             migrationBuilder.DropTable(
-                name: "ToolSetting");
+                name: "ToolSettings");
 
-            migrationBuilder.CreateTable(
-                name: "Tool",
-                columns: table => new
-                {
-                    ToolId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    SettingId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tool", x => x.ToolId);
-                    table.ForeignKey(
-                        name: "FK_Tool_Settings_SettingId",
-                        column: x => x.SettingId,
-                        principalTable: "Settings",
-                        principalColumn: "SettingId");
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tool_SettingId",
-                table: "Tool",
-                column: "SettingId");
+            migrationBuilder.DropTable(
+                name: "Settings");
         }
     }
 }

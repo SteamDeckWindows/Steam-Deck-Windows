@@ -1,4 +1,5 @@
-﻿using SteamDeckWindows.Models;
+﻿using SteamDeckWindows.Data;
+using SteamDeckWindows.Models;
 using System;
 using System.ComponentModel;
 using System.Linq;
