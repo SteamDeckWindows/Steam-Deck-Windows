@@ -25,6 +25,9 @@ namespace SteamDeckWindows.Migrations
                     b.Property<bool>("Install")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("InstalledVersion")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -54,6 +57,10 @@ namespace SteamDeckWindows.Migrations
                     b.Property<bool>("InstallEmulationStationDe")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("InstallPath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -80,6 +87,9 @@ namespace SteamDeckWindows.Migrations
 
                     b.Property<bool>("Install")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("InstalledVersion")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()

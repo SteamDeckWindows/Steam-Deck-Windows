@@ -7,6 +7,7 @@ namespace SteamDeckWindows.Models
     {
         public int SettingId { get; set; }
         public string Name { get; set; }
+        public string InstallPath { get; set; }
         public bool InstallDrivers { get; set; }
         public bool InstallEmulationStationDe { get; set; }
         public bool ResetEmulationStationDe { get; set; }
@@ -19,6 +20,7 @@ namespace SteamDeckWindows.Models
     {
         public int ToolSettingId { get; set; }
         public string Name { get; set; }
+        public string? InstalledVersion { get; set; }
         public bool Install { get; set; }
         internal int SettingId;
         public virtual Setting Setting { get; private set; }
@@ -28,6 +30,7 @@ namespace SteamDeckWindows.Models
     {
         public int EmulatorSettingId { get; set; }
         public string Name { get; set; }
+        public string? InstalledVersion { get; set; }
         public bool Install { get; set; }
         public bool ResetSettings { get; set; }
         internal int SettingId;

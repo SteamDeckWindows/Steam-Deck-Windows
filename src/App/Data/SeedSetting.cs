@@ -1,9 +1,6 @@
 ﻿using SteamDeckWindows.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SteamDeckWindows.Data
 {
@@ -14,6 +11,7 @@ namespace SteamDeckWindows.Data
             Setting setting = new Setting
             {
                 Name = "MySetting",
+                InstallPath = $"C:\\SDW\\",
                 InstallDrivers = true,
                 InstallEmulationStationDe = true,
                 ResetEmulationStationDe = true,
@@ -22,11 +20,11 @@ namespace SteamDeckWindows.Data
             var exist = db.Settings.FirstOrDefault(x => x.SettingId == 1);
             if(exist != null && resetToDefault)
             {
-                db.RemoveRange(EmulatorSettings);
-                db.RemoveRange(ToolSettings);
+                db.RemoveRange(db.EmulatorSettings);
+                db.RemoveRange(db.ToolSettings);
                 db.SaveChanges();
 
-                db.Remove(setting);
+                db.Remove(exist);
                 db.SaveChanges();
             }
             if (exist == null || resetToDefault)
@@ -64,12 +62,13 @@ namespace SteamDeckWindows.Data
             }
         }
 
+        //ADD new emulators this list and also create the requires Service/Emulators/xxService
         public static readonly List<EmulatorSetting> EmulatorSettings = new List<EmulatorSetting>(){
             new EmulatorSetting{ Name = "Ryujinx", SettingId = 1, EmulatorSettingId = 1, Install = true, ResetSettings = true },
             new EmulatorSetting{ Name = "Yuzy", SettingId = 1, EmulatorSettingId = 2, Install = true, ResetSettings = true },
             new EmulatorSetting{ Name = "RetroArch", SettingId = 1, EmulatorSettingId = 3, Install = true, ResetSettings = true }
         };
-
+        //ADD new tools this list and also create the requires Service/Tools/xxService
         public static readonly List<ToolSetting> ToolSettings = new List<ToolSetting>()
         {
             new ToolSetting{ Name = "GlosSI", SettingId = 1, ToolSettingId = 1, Install = true},

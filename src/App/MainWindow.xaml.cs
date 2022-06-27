@@ -34,24 +34,27 @@ namespace SteamDeckWindows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //db.Database.EnsureCreated();
             //Run migrations
-            db.Database.MigrateAsync();
+            db.Database.Migrate();
 
             // load the entities into EF Core
             db.Settings.Load();
 
-            SeedSetting.SeedSettingsData(db);
+            SeedSetting.SeedSettingsData(db,true);
 
-            AddStatus("Welcome to Steam Deck Windows") ;
-            AddStatus(db.Settings.First().Name);
-            foreach(var emu in db.EmulatorSettings.ToList())
+            AddStatus("Welcome to Steam Deck Windows");
+            var setting = db.Settings.Include(ts => ts.Tools).Include(es => es.Emulators).First();
+            AddStatus($"Files will be installed to {setting.InstallPath}");
+            AddStatus($"*************** EMULATORS ***************");
+            foreach (var emu in setting.Emulators.ToList())
             {
                 AddStatus($"Settings for {emu.Name} Loaded");
             }
-            // bind to the source
-            //categoryViewSource.Source =
-            //    _context.Categories.Local.ToObservableCollection();
+            AddStatus($"*************** TOOLS ***************");
+            foreach (var tool in setting.Tools.ToList())
+            {
+                AddStatus($"Settings for {tool.Name} Loaded");
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -63,8 +66,25 @@ namespace SteamDeckWindows
 
         private async void Update_Click(object sender, RoutedEventArgs e)
         {
-            Task task = new DriverService().DownloadDrivers(ProgressBar, SubProgressBar, ProgressLabel, SubProgressLabel);
-            await task;
+            var setting = db.Settings.Include(ts => ts.Tools).Include(es => es.Emulators).FirstOrDefault();
+            if (setting != null)
+            {
+                Directory.CreateDirectory(setting.InstallPath);
+                Directory.CreateDirectory($"{setting.InstallPath}\\Temp");
+                if (setting.InstallDrivers)
+                {
+                    await new DriverService().DownloadDrivers(SubProgressBar, SubProgressLabel, $"{setting.InstallPath}");
+                }
+                if (setting.InstallEmulationStationDe)
+                {
+                    await new EmulationStationDeService().InstallLatest(SubProgressBar, SubProgressLabel, $"{setting.InstallPath}");
+                }
+            }
+            else
+            {
+                AddStatus("An ERROR occured! We could not find valid settings. Please click 'Settings' and review/save your settings. Then run update again.");
+            }
+            
         }
 
         private void GetVersion()
