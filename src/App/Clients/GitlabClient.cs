@@ -45,12 +45,11 @@ namespace SteamDeckWindows.Clients
 		}
 		public async Task DownloadFile(PackageFileDto fileDto, ProgressBar progressBar, string savePath)
         {
-			Directory.CreateDirectory($"{savePath}");
 			using var client = new HttpClient();
 			client.Timeout = TimeSpan.FromMinutes(10);
 
 			var downloadUrl = $"{GitLabDownloadPath}{fileDto.id}/download";
-
+			if (File.Exists($"{savePath}{fileDto.file_name}")) File.Delete($"{savePath}{fileDto.file_name}");
 			using var f = new FileStream($"{savePath}{fileDto.file_name}", FileMode.Create, FileAccess.Write, FileShare.None);
 
 			var progress = new Progress<float>();

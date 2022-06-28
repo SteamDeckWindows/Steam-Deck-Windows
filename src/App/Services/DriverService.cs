@@ -17,7 +17,7 @@ namespace SteamDeckWindows.Services
         private readonly string driversUrl = @"https://steamdeck-packages.steamos.cloud/misc/windows/drivers/";
 
         private readonly List<string> files = new() {
-            "APU_220520a-377788E-2206021014.zip", //APU driver                              2022-Jun-16 23:36
+            //"APU_220520a-377788E-2206021014.zip", //APU driver                              2022-Jun-16 23:36
             //"Aerith Windows Driver_2204252254.zip",  //APU Driver 	                    2022-May-13 19:12
             "BayHub_SD_STOR_installV3.4.01.89_W10W11_logoed_20220228.zip", //SD Card reader 2022-Mar-15 00:04
             "RTBlueR_FilterDriver_1041.3005_1201.2021_new_L.zip", //Bluetooth               2022-Mar-09 20:07
@@ -28,8 +28,6 @@ namespace SteamDeckWindows.Services
 
         public async Task DownloadDrivers(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
         {
-            if (!Directory.Exists($"{installPath}\\Drivers")) Directory.CreateDirectory($"{installPath}\\Drivers");
-
             for (var i = 0; i < files.Count(); i++)
             {
                 var file = files[i];

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -9,6 +5,6 @@ namespace SteamDeckWindows.Services.Emulators
 {
     public interface IEmulatorService
     {
-
+        Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath);
     }
 }

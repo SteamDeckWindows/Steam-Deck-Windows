@@ -1,15 +1,10 @@
 ﻿using SteamDeckWindows.Services;
-using System.Threading.Tasks;
 using System.Windows;
-using AutoUpdaterDotNET;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.IO;
-using SteamDeckWindows.Models;
-using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Extensions.Logging;
 using SteamDeckWindows.Data;
 
 namespace SteamDeckWindows
@@ -67,24 +62,9 @@ namespace SteamDeckWindows
         private async void Update_Click(object sender, RoutedEventArgs e)
         {
             var setting = db.Settings.Include(ts => ts.Tools).Include(es => es.Emulators).FirstOrDefault();
-            if (setting != null)
-            {
-                Directory.CreateDirectory(setting.InstallPath);
-                Directory.CreateDirectory($"{setting.InstallPath}\\Temp");
-                if (setting.InstallDrivers)
-                {
-                    await new DriverService().DownloadDrivers(SubProgressBar, SubProgressLabel, $"{setting.InstallPath}");
-                }
-                if (setting.InstallEmulationStationDe)
-                {
-                    await new EmulationStationDeService().InstallLatest(SubProgressBar, SubProgressLabel, $"{setting.InstallPath}");
-                }
-            }
-            else
-            {
-                AddStatus("An ERROR occured! We could not find valid settings. Please click 'Settings' and review/save your settings. Then run update again.");
-            }
-            
+
+            await new InstallService(tbStatus, ProgressBar, ProgressLabel, SubProgressBar, SubProgressLabel, setting).Update();
+            MessageBox.Show("Update completed!");
         }
 
         private void GetVersion()
