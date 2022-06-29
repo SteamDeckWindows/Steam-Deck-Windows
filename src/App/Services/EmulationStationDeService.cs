@@ -32,5 +32,7 @@ namespace SteamDeckWindows.Services
                 subProgressLabel.Content = "ERROR: EmulationStation-DE portable latest build could not be found!";
             }
         }
+
+        //Create shortcut using EmulationStation.exe --resolution 1281 800 as workaround for screen bug
     }
 }

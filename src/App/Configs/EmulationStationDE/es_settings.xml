@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<string name="ROMDirectory" value="<%romspath%>" />
+<string name="ThemeSet" value="es-epicnoir" />

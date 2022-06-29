@@ -66,7 +66,23 @@ namespace SteamDeckWindows.Data
         public static readonly List<EmulatorSetting> EmulatorSettings = new List<EmulatorSetting>(){
             new EmulatorSetting{ Name = "Ryujinx", SettingId = 1, EmulatorSettingId = 1, Install = true, ResetSettings = true },
             new EmulatorSetting{ Name = "Yuzy", SettingId = 1, EmulatorSettingId = 2, Install = true, ResetSettings = true },
-            new EmulatorSetting{ Name = "RetroArch", SettingId = 1, EmulatorSettingId = 3, Install = true, ResetSettings = true }
+            new EmulatorSetting{ Name = "RetroArch", SettingId = 1, EmulatorSettingId = 3, Install = true, ResetSettings = true },
+            new EmulatorSetting{ Name = "Xemu", SettingId = 1, EmulatorSettingId = 4, Install = true, ResetSettings = true },
+            // TODO: Want to add these Emulators as Standalone below
+            // Cemu does not have api accessible version stuff - direct download for now
+            // Dolphin does not have api accessible version stuff - direct download for now
+            // RPCS3
+            // Citra
+            // PPSSPP
+            // Duckstation
+            // ----- Below this line are emulators where I am not sure if we should just use RetroArch
+            // Mupen64Plus-Next
+            // OpenBOR
+            // Daphne
+            // Redream
+            // ScummVM
+            // DosBox
+            // Ports
         };
         //ADD new tools this list and also create the requires Service/Tools/xxService
         public static readonly List<ToolSetting> ToolSettings = new List<ToolSetting>()

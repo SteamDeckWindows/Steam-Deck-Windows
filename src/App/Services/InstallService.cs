@@ -32,54 +32,74 @@ namespace SteamDeckWindows.Services
 
         public async Task Update()
         {
-            if (setting != null)
-            {
-                var steps = GetSteps();
-                AddStatus("Creating directories");
-                progressLabel.Content = $"Step 1 of {steps.Total} - Creating directories";
-                CreateDirectories();
-                GetProgress(1, steps);
+            try {
+                AddStatus("Running Update");
+                if (setting != null)
+                {
+                    var steps = GetSteps();
+                    AddStatus("Creating directories");
+                    progressLabel.Content = $"Step 1 of {steps.Total} - Creating directories";
+                    CreateDirectories();
+                    GetProgress(1, steps);
 
-                if (setting.InstallDrivers)
-                {
-                    progressLabel.Content = $"Step {steps.InstallDrivers} of {steps.Total} - Installing drivers";
-                    //await new DriverService().DownloadDrivers(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
-                    GetProgress(steps.InstallDrivers, steps);
+                    if (setting.InstallDrivers)
+                    {
+                        progressLabel.Content = $"Step {steps.InstallDrivers} of {steps.Total} - Installing drivers";
+                        //await new DriverService().DownloadDrivers(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
+                        GetProgress(steps.InstallDrivers, steps);
+                    }
+                    if (setting.InstallEmulationStationDe)
+                    {
+                        progressLabel.Content = $"Step {steps.InstallEmulationStationDe} of {steps.Total} - Installing Emulation Station DE";
+                        //await new EmulationStationDeService().InstallLatest(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
+                        GetProgress(steps.InstallEmulationStationDe, steps);
+                    }
+                    if (setting.Emulators.Where(x => x.Install == true).Any())
+                    {
+                        progressLabel.Content = $"Step {steps.InstallEmulators} of {steps.Total} - Installing emulators";
+                        await InstallEmulators();
+                        GetProgress(steps.InstallEmulators, steps);
+                    }
+                    if (setting.Tools.Where(x => x.Install == true).Any())
+                    {
+                        progressLabel.Content = $"Step {steps.InstallTools} of {steps.Total} - Installing tools";
+                        //TODO install selected tools
+                        GetProgress(steps.InstallTools, steps);
+                    }
+                    if (setting.Emulators.Where(x => x.Install == true).Any())
+                    {
+                        progressLabel.Content = $"Step {steps.ConfigureEmulators} of {steps.Total} - Configuring emulators";
+                        //TODO configure selected emulators
+                        GetProgress(steps.ConfigureEmulators, steps);
+                    }
+                    if (setting.Tools.Where(x => x.Install == true).Any())
+                    {
+                        progressLabel.Content = $"Step {steps.ConfigureTools} of {steps.Total} - Configuring tools";
+                        //TODO configure selected tools
+                        GetProgress(steps.ConfigureTools, steps);
+                    }
+                    if (setting.InstallEmulationStationDe)
+                    {
+                        progressLabel.Content = $"Step {steps.ConfigureEmulationStationDe} of {steps.Total} - Configuring Emulation Station DE";
+                        //await new EmulationStationDeService().InstallLatest(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
+                        GetProgress(steps.ConfigureEmulationStationDe, steps);
+                    }
+                    AddStatus("Update Complete!");
+                    AddStatus(@"\,,/(^‿^)\,,/");
                 }
-                if (setting.InstallEmulationStationDe)
+                else
                 {
-                    progressLabel.Content = $"Step {steps.InstallEmulationStationDe} of {steps.Total} - Installing drivers";
-                    //await new EmulationStationDeService().InstallLatest(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
-                    GetProgress(steps.InstallEmulationStationDe, steps);
-                }
-                if (setting.Emulators.Where(x => x.Install == true).Any())
-                {
-                    progressLabel.Content = $"Step {steps.InstallEmulators} of {steps.Total} - Installing emulators";
-                    await InstallEmulators();
-                    GetProgress(steps.InstallEmulators, steps);
-                }
-                if (setting.Tools.Where(x => x.Install == true).Any())
-                {
-                    progressLabel.Content = $"Step {steps.InstallTools} of {steps.Total} - Installing tools";
-                    //TODO install selected tools
-                    GetProgress(steps.InstallTools, steps);
-                }
-                if (setting.Emulators.Where(x => x.Install == true).Any())
-                {
-                    progressLabel.Content = $"Step {steps.ConfigureEmulators} of {steps.Total} - Installing emulators";
-                    //TODO configure selected emulators
-                    GetProgress(steps.ConfigureEmulators, steps);
-                }
-                if (setting.Tools.Where(x => x.Install == true).Any())
-                {
-                    progressLabel.Content = $"Step {steps.ConfigureTools} of {steps.Total} - Installing tools";
-                    //TODO configure selected tools
-                    GetProgress(steps.ConfigureTools, steps);
+                    AddStatus("An ERROR occured! We could not find valid settings. Please click 'Settings' and review/save your settings. Then run update again.");
                 }
             }
-            else
-            {
-                AddStatus("An ERROR occured! We could not find valid settings. Please click 'Settings' and review/save your settings. Then run update again.");
+            catch(Exception ex){
+                AddStatus("Error!");
+                AddStatus("┌∩┐(◣_◢)┌∩┐");
+                AddStatus("Error Message");
+                AddStatus(ex.Message);
+                AddStatus("Error Stacktrace");
+                AddStatus(ex.StackTrace);
+                AddStatus("Please report this as an issue if the problem persists.");
             }
         }
         private void AddStatus(string text)
@@ -98,6 +118,7 @@ namespace SteamDeckWindows.Services
             if (setting.Tools.Where(x => x.Install == true).Any()) { steps.Total++; steps.InstallTools = steps.Total; }
             if (setting.Emulators.Where(x => x.Install == true).Any()) { steps.Total++; steps.ConfigureEmulators = steps.Total; }
             if (setting.Tools.Where(x => x.Install == true).Any()) { steps.Total++; steps.ConfigureTools = steps.Total; }
+            if (setting.InstallEmulationStationDe) { steps.Total++; steps.ConfigureEmulationStationDe = steps.Total; }
             return steps;
         }
 
@@ -124,8 +145,14 @@ namespace SteamDeckWindows.Services
             {
                 switch (emulator.Name)
                 {
+                    case "RetroArch":
+                        await new RetroArch().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
                     case "Ryujinx":
                         await new Ryujinx().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
+                    case "Yuzu":
+                        await new Yuzu().Install(subProgressBar, subProgressLabel, setting.InstallPath);
                         break;
                     default:
                         break;
@@ -143,5 +170,6 @@ namespace SteamDeckWindows.Services
         public int InstallTools { get; set; }
         public int ConfigureEmulators { get; set; }
         public int ConfigureTools { get; set; }
+        public int ConfigureEmulationStationDe { get; set; }
     }
 }

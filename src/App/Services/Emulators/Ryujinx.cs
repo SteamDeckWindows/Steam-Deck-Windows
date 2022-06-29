@@ -4,6 +4,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using SteamDeckWindows.Extensions;
 
 namespace SteamDeckWindows.Services.Emulators
 {
@@ -17,9 +18,16 @@ namespace SteamDeckWindows.Services.Emulators
 
             subProgressLabel.Content = $"Downloading {latestRelease.name}";
             await client.DownloadFile(latestRelease, subProgressBar, $"{installPath}\\Temp\\");
+
             subProgressLabel.Content = $"Unpacking {latestRelease.name} to {installPath}\\Temp\\{latestRelease.name}";
-            ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{latestRelease.name.Replace(".zip","")}", true);
+            var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
+            ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
+            //move
+            MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Ryujinx");
+            
+            //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");
+
             subProgressLabel.Content = "Finished installing Ryujinx";
         }
     }
