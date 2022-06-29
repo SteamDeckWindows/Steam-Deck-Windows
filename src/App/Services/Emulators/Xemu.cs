@@ -8,7 +8,7 @@ using SteamDeckWindows.Extensions;
 
 namespace SteamDeckWindows.Services.Emulators
 {
-    public class Yuzu : IEmulatorService
+    public class Xemu : IEmulatorService
     {
         public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
         {
@@ -23,7 +23,7 @@ namespace SteamDeckWindows.Services.Emulators
             var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
             ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
             //move
-            MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\Xemu");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\Xemu");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");

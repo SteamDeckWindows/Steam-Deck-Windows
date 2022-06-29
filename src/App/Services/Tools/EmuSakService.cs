@@ -23,7 +23,7 @@ namespace SteamDeckWindows.Services.Tools
            
             ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
             //move
-            MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Tools\\EmuSAK");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Tools\\EmuSAK");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");

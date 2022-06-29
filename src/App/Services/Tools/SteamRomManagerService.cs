@@ -23,7 +23,7 @@ namespace SteamDeckWindows.Services.Tools
            
             ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
             //move
-            MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Tools\\SteamRomManager");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Tools\\SteamRomManager");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");

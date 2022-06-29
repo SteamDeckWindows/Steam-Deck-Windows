@@ -1,27 +1,28 @@
-using System;
 using System.IO;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace SteamDeckWindows.Extensions
 {
-    public static void MoveDirectory(string source, string target)
+    public static class DirectoryExtensions
     {
-        var sourcePath = source.TrimEnd('\\', ' ');
-        var targetPath = target.TrimEnd('\\', ' ');
-        var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories).GroupBy(s=> Path.GetDirectoryName(s));
-        foreach (var folder in files)
+        public static void MoveDirectory(string source, string target)
         {
-            var targetFolder = folder.Key.Replace(sourcePath, targetPath);
-            Directory.CreateDirectory(targetFolder);
-            foreach (var file in folder)
+            var sourcePath = source.TrimEnd('\\', ' ');
+            var targetPath = target.TrimEnd('\\', ' ');
+            var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories).GroupBy(s => Path.GetDirectoryName(s));
+            foreach (var folder in files)
             {
-                var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
-                if (File.Exists(targetFile)) File.Delete(targetFile);
-                File.Move(file, targetFile);
+                var targetFolder = folder.Key.Replace(sourcePath, targetPath);
+                Directory.CreateDirectory(targetFolder);
+                foreach (var file in folder)
+                {
+                    var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
+                    if (File.Exists(targetFile)) File.Delete(targetFile);
+                    File.Move(file, targetFile);
+                }
             }
+            Directory.Delete(source, true);
         }
-        Directory.Delete(source, true);
     }
+
 }

@@ -14,7 +14,10 @@ namespace SteamDeckWindows.Clients
 	public class GithubClient
 	{
 		private readonly string GithubApi = "https://api.github.com/repos";
-		public GithubClient(string repository, string channel)
+
+        public TimeSpan Timeout { get; internal set; }
+
+        public GithubClient(string repository, string channel)
 		{
 			GithubApi += $"/{repository}/{channel}/";
 		}

@@ -23,7 +23,7 @@ namespace SteamDeckWindows.Services.Emulators
             var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
             ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
             //move
-            MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\PrimeHack");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\PrimeHack");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");
