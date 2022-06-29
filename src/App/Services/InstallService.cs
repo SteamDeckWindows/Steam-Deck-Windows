@@ -1,6 +1,7 @@
 ﻿using SteamDeckWindows.Data;
 using SteamDeckWindows.Models;
 using SteamDeckWindows.Services.Emulators;
+using SteamDeckWindows.Services.Tools;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,13 +46,13 @@ namespace SteamDeckWindows.Services
                     if (setting.InstallDrivers)
                     {
                         progressLabel.Content = $"Step {steps.InstallDrivers} of {steps.Total} - Installing drivers";
-                        //await new DriverService().DownloadDrivers(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
+                        await new DriverService().DownloadDrivers(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
                         GetProgress(steps.InstallDrivers, steps);
                     }
                     if (setting.InstallEmulationStationDe)
                     {
                         progressLabel.Content = $"Step {steps.InstallEmulationStationDe} of {steps.Total} - Installing Emulation Station DE";
-                        //await new EmulationStationDeService().InstallLatest(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
+                        await new EmulationStationDeService().InstallLatest(subProgressBar, subProgressLabel, $"{setting.InstallPath}");
                         GetProgress(steps.InstallEmulationStationDe, steps);
                     }
                     if (setting.Emulators.Where(x => x.Install == true).Any())
@@ -63,7 +64,7 @@ namespace SteamDeckWindows.Services
                     if (setting.Tools.Where(x => x.Install == true).Any())
                     {
                         progressLabel.Content = $"Step {steps.InstallTools} of {steps.Total} - Installing tools";
-                        //TODO install selected tools
+                        await InstallTools();
                         GetProgress(steps.InstallTools, steps);
                     }
                     if (setting.Emulators.Where(x => x.Install == true).Any())
@@ -97,14 +98,18 @@ namespace SteamDeckWindows.Services
                 AddStatus("┌∩┐(◣_◢)┌∩┐");
                 AddStatus("Error Message");
                 AddStatus(ex.Message);
-                AddStatus("Error Stacktrace");
-                AddStatus(ex.StackTrace);
+                if (ex.StackTrace != null)
+                {
+                    AddStatus("Error Stacktrace");
+                    AddStatus(ex.StackTrace);
+                }
                 AddStatus("Please report this as an issue if the problem persists.");
             }
         }
         private void AddStatus(string text)
         {
             status.Text += $"{text}\r\n";
+            status.ScrollToEnd();
         }
 
         private Steps GetSteps()
@@ -143,8 +148,15 @@ namespace SteamDeckWindows.Services
             if (setting == null) return;
             foreach (var emulator in setting.Emulators.Where(x => x.Install == true).ToList())
             {
+                AddStatus($"Installing {emulator.Name}");
                 switch (emulator.Name)
                 {
+                    case "PCSX2":
+                        await new Pcsx2().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
+                    case "PrimeHack":
+                        await new PrimeHack().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
                     case "RetroArch":
                         await new RetroArch().Install(subProgressBar, subProgressLabel, setting.InstallPath);
                         break;
@@ -154,9 +166,36 @@ namespace SteamDeckWindows.Services
                     case "Yuzu":
                         await new Yuzu().Install(subProgressBar, subProgressLabel, setting.InstallPath);
                         break;
+                    case "Xemu":
+                        await new Xemu().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
                     default:
                         break;
                 }
+                AddStatus($"Installed {emulator.Name}");
+            }
+        }
+        private async Task InstallTools()
+        {
+            if (setting == null) return;
+            foreach (var tool in setting.Tools.Where(x => x.Install == true).ToList())
+            {
+                AddStatus($"Installing {tool.Name}");
+                switch (tool.Name)
+                {
+                    case "EmuSAK":
+                        await new EmuSakService().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
+                    case "GlosSI":
+                        await new GlosSIService().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
+                    case "Steam Rom Manager":
+                        await new SteamRomManagerService().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        break;
+                    default:
+                        break;
+                }
+                AddStatus($"Installed {tool.Name}");
             }
         }
     }

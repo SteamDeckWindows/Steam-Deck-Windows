@@ -9,7 +9,8 @@ namespace SteamDeckWindows.Extensions
         {
             var sourcePath = source.TrimEnd('\\', ' ');
             var targetPath = target.TrimEnd('\\', ' ');
-            var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories).GroupBy(s => Path.GetDirectoryName(s));
+            var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
+                                 .GroupBy(s => Path.GetDirectoryName(s));
             foreach (var folder in files)
             {
                 var targetFolder = folder.Key.Replace(sourcePath, targetPath);
@@ -23,6 +24,6 @@ namespace SteamDeckWindows.Extensions
             }
             Directory.Delete(source, true);
         }
-    }
 
+    }
 }

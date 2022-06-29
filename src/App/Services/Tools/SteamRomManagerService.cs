@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
+using SevenZipExtractor;
 
 namespace SteamDeckWindows.Services.Tools
 {
@@ -18,15 +19,12 @@ namespace SteamDeckWindows.Services.Tools
 
             subProgressLabel.Content = $"Downloading {latestRelease.name}";
             await client.DownloadFile(latestRelease, subProgressBar, $"{installPath}\\Temp\\");
-            var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
-            subProgressLabel.Content = $"Unpacking {latestRelease.name} to {installPath}\\Temp\\{filenameWithoutExt}";
-           
-            ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
-            //move
-            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Tools\\SteamRomManager");
-            
-            //cleanup
-            File.Delete($"{installPath}\\Temp\\{latestRelease.name}");
+
+            Directory.CreateDirectory($"{installPath}\\Tools\\SteamRomManager");
+            if (File.Exists($"{installPath}\\Tools\\SteamRomManager\\SteamRomManager.exe")) 
+                File.Delete($"{installPath}\\Tools\\SteamRomManager\\SteamRomManager.exe");
+
+            File.Move($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Tools\\SteamRomManager\\SteamRomManager.exe");
 
             subProgressLabel.Content = "Finished installing SteamRomManager";
         }

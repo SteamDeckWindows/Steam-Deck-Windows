@@ -22,6 +22,19 @@ namespace SteamDeckWindows.Clients
 			GithubApi += $"/{repository}/{channel}/";
 		}
 
+		public async Task<List<AllReleasesDto>> GetAllRelease()
+		{
+
+			using var client = new HttpClient();
+			client.Timeout = TimeSpan.FromSeconds(30);
+			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			client.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+			var url = $"{GithubApi}releases";
+			var response = await client.GetAsync(url);
+			response.EnsureSuccessStatusCode();
+			return JsonConvert.DeserializeObject<List<AllReleasesDto>>(await response.Content.ReadAsStringAsync());
+		}
+
 		public async Task<ReleaseDto> GetLatestRelease(){
 
 			using var client = new HttpClient();
@@ -32,6 +45,18 @@ namespace SteamDeckWindows.Clients
 			var response = await client.GetAsync(url);
 			response.EnsureSuccessStatusCode();
             return JsonConvert.DeserializeObject<ReleaseDto>(await response.Content.ReadAsStringAsync());
+		}
+
+		public async Task<List<ReleaseAssetDto>> GetReleaseAssets(string url)
+		{
+
+			using var client = new HttpClient();
+			client.Timeout = TimeSpan.FromSeconds(30);
+			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			client.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+			var response = await client.GetAsync(url);
+			response.EnsureSuccessStatusCode();
+			return JsonConvert.DeserializeObject<List<ReleaseAssetDto>>(await response.Content.ReadAsStringAsync());
 		}
 
 		public async Task DownloadFile(ReleaseAssetDto asset, ProgressBar progressBar, string savePath)

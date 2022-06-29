@@ -37,6 +37,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SevenZipExtractor" Version="1.0.17" />
   </ItemGroup>
 
   <ItemGroup>

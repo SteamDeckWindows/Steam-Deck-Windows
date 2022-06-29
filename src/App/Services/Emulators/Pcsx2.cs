@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
+using SevenZipExtractor;
 
 namespace SteamDeckWindows.Services.Emulators
 {
@@ -13,21 +14,28 @@ namespace SteamDeckWindows.Services.Emulators
         public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
         {
             var client = new GithubClient("PCSX2", "pcsx2");
-            var latestReleases = await client.GetLatestRelease();
-            var latestRelease = latestReleases.assets.Where(x => x.name.EndsWith("windows-64bit-SSE4-Qt-symbols.7z")).First(); //NOTE: for now we use the symbols version for easier debug msgs
+            var latestReleases = await client.GetAllRelease();
+            var latest = latestReleases.Where(w => w.prerelease.Equals(true)).OrderByDescending(o => o.created_at).First();
+            var assets = await client.GetReleaseAssets(latest.assets_url);
+            var latestRelease = assets.Where(x => x.name.EndsWith("windows-64bit-AVX2-Qt.7z")).First();
 
             subProgressLabel.Content = $"Downloading {latestRelease.name}";
             await client.DownloadFile(latestRelease, subProgressBar, $"{installPath}\\Temp\\");
 
             subProgressLabel.Content = $"Unpacking {latestRelease.name} to {installPath}\\Temp\\{latestRelease.name}";
             var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
-            ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
+            Directory.CreateDirectory($"{installPath}\\Temp\\RetroArch-{latestRelease.name}");
+            using (var archiveFile = new ArchiveFile($"{installPath}\\Temp\\{latestRelease.name}"))
+            {
+                archiveFile.Extract($"{installPath}\\Temp\\{filenameWithoutExt}"); // extract all
+            }
             //move
-            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\PCSX2");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\Emulators\\PCSX2");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");
-
+            if (Directory.Exists($"{installPath}\\Temp\\{filenameWithoutExt}"))
+                Directory.Delete($"{installPath}\\Temp\\{filenameWithoutExt}");
             subProgressLabel.Content = "Finished installing PCSX2";
         }
     }

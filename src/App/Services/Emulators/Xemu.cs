@@ -23,11 +23,12 @@ namespace SteamDeckWindows.Services.Emulators
             var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
             ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
             //move
-            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\Xemu");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}", $"{installPath}\\Emulators\\Xemu");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");
-
+            if (Directory.Exists($"{installPath}\\Temp\\{filenameWithoutExt}"))
+                Directory.Delete($"{installPath}\\Temp\\{filenameWithoutExt}");
             subProgressLabel.Content = "Finished installing Xemu";
         }
     }

@@ -23,11 +23,12 @@ namespace SteamDeckWindows.Services.Emulators
             var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
             ZipFile.ExtractToDirectory($"{installPath}\\Temp\\{latestRelease.name}", $"{installPath}\\Temp\\{filenameWithoutExt}", true);
             //move
-            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Ryujinx");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\{filenameWithoutExt}\\publish", $"{installPath}\\Emulators\\Ryujinx");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\{latestRelease.name}");
-
+            if(Directory.Exists($"{installPath}\\Temp\\{filenameWithoutExt}"))
+                Directory.Delete($"{installPath}\\Temp\\{filenameWithoutExt}");
             subProgressLabel.Content = "Finished installing Ryujinx";
         }
     }

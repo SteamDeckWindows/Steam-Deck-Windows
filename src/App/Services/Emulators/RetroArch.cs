@@ -1,12 +1,9 @@
 ﻿using SteamDeckWindows.Clients;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
-using System;
-using System.Net.Http;
+using SevenZipExtractor;
 
 namespace SteamDeckWindows.Services.Emulators
 {
@@ -21,32 +18,24 @@ namespace SteamDeckWindows.Services.Emulators
             var downloadUrl = $"https://buildbot.libretro.com/stable/{latestReleaseName}/windows/x86_64/RetroArch.7z";
 
             subProgressLabel.Content = $"Downloading RetroArch {latestRelease.name}";
-
-            using var clientDownload = new HttpClient();
-            client.Timeout = TimeSpan.FromMinutes(10);
-            System.Threading.CancellationToken cancellationToken = default;
-            if (File.Exists($"{installPath}\\Temp\\RetroArch.7z")) File.Delete($"{installPath}\\Temp\\RetroArch.7z");
-            using var f = new FileStream($"{installPath}\\Temp\\RetroArch.7z", FileMode.Create, FileAccess.Write, FileShare.None);
-
-            var progress = new Progress<float>();
-
-            //Gets download progress
-            progress.ProgressChanged += (sender, value) =>
-            {
-                subProgressBar.Value = (int)(value * 100);
-            };
-
-            await clientDownload.DownloadAsync(downloadUrl, f, progress, cancellationToken);
+            await new GenericHttpDownloadClient().DownloadFile(downloadUrl, "RetroArch.7z", subProgressBar, installPath);
 
             //TODO should also download and install cores from latest nightly build?
 
             subProgressLabel.Content = $"Unpacking RetroArch {latestRelease.name} to {installPath}\\Temp\\RetroArch-{latestRelease.name}";
-            ZipFile.ExtractToDirectory($"{installPath}\\Temp\\RetroArch.7z", $"{installPath}\\Temp\\RetroArch-{latestRelease.name}", true);
+            Directory.CreateDirectory($"{installPath}\\Temp\\RetroArch-{latestRelease.name}");
+            using (var archiveFile = new ArchiveFile($"{installPath}\\Temp\\RetroArch.7z"))
+            {
+                archiveFile.Extract($"{installPath}\\Temp\\RetroArch-{latestRelease.name}"); // extract all
+            }
+
             //move
-            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\RetroArch-{latestRelease.name}", $"{installPath}\\RetroArch");
+            DirectoryExtensions.MoveDirectory($"{installPath}\\Temp\\RetroArch-{latestRelease.name}\\RetroArch-Win64", $"{installPath}\\Emulators\\RetroArch");
             
             //cleanup
             File.Delete($"{installPath}\\Temp\\RetroArch.7z");
+            if(Directory.Exists($"{installPath}\\Temp\\RetroArch-{latestRelease.name}"))
+                Directory.Delete($"{installPath}\\Temp\\RetroArch-{latestRelease.name}");
 
             subProgressLabel.Content = "Finished installing RetroArch";
         }

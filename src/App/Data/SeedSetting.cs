@@ -11,7 +11,7 @@ namespace SteamDeckWindows.Data
             Setting setting = new Setting
             {
                 Name = "MySetting",
-                InstallPath = $"C:\\SDW\\",
+                InstallPath = $"C:\\SDW",
                 InstallDrivers = true,
                 InstallEmulationStationDe = true,
                 ResetEmulationStationDe = true,
@@ -65,9 +65,11 @@ namespace SteamDeckWindows.Data
         //ADD new emulators this list and also create the requires Service/Emulators/xxService
         public static readonly List<EmulatorSetting> EmulatorSettings = new List<EmulatorSetting>(){
             new EmulatorSetting{ Name = "Ryujinx", SettingId = 1, EmulatorSettingId = 1, Install = true, ResetSettings = true },
-            new EmulatorSetting{ Name = "Yuzy", SettingId = 1, EmulatorSettingId = 2, Install = true, ResetSettings = true },
+            new EmulatorSetting{ Name = "Yuzu", SettingId = 1, EmulatorSettingId = 2, Install = true, ResetSettings = true },
             new EmulatorSetting{ Name = "RetroArch", SettingId = 1, EmulatorSettingId = 3, Install = true, ResetSettings = true },
             new EmulatorSetting{ Name = "Xemu", SettingId = 1, EmulatorSettingId = 4, Install = true, ResetSettings = true },
+            new EmulatorSetting{ Name = "PCSX2", SettingId = 1, EmulatorSettingId = 5, Install = true, ResetSettings = true },
+            new EmulatorSetting{ Name = "PrimeHack", SettingId = 1, EmulatorSettingId = 6, Install = true, ResetSettings = true },
             // TODO: Want to add these Emulators as Standalone below
             // Cemu does not have api accessible version stuff - direct download for now
             // Dolphin does not have api accessible version stuff - direct download for now
@@ -88,7 +90,8 @@ namespace SteamDeckWindows.Data
         public static readonly List<ToolSetting> ToolSettings = new List<ToolSetting>()
         {
             new ToolSetting{ Name = "GlosSI", SettingId = 1, ToolSettingId = 1, Install = true},
-            new ToolSetting{ Name = "Steam Rom Manager", SettingId = 1, ToolSettingId = 2, Install = true}
+            new ToolSetting{ Name = "Steam Rom Manager", SettingId = 1, ToolSettingId = 2, Install = true},
+            new ToolSetting{ Name = "EmuSAK", SettingId = 1, ToolSettingId = 3, Install = true}
         };
     }
 }
