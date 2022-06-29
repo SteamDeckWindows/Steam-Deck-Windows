@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using SteamDeckWindows.Data;
+using AutoUpdaterDotNET;
 
 namespace SteamDeckWindows
 {
