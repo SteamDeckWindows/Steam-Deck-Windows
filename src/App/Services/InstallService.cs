@@ -152,22 +152,28 @@ namespace SteamDeckWindows.Services
                 switch (emulator.Name)
                 {
                     case "PCSX2":
-                        await new Pcsx2().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new Pcsx2().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
+                        break;
+                    case "PPSSPP":
+                        await new Ppsspp().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
                         break;
                     case "PrimeHack":
-                        await new PrimeHack().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new PrimeHack().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
                         break;
                     case "RetroArch":
-                        await new RetroArch().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new RetroArch().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
+                        break;
+                    case "RPCS3":
+                        await new Rpcs3().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
                         break;
                     case "Ryujinx":
-                        await new Ryujinx().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new Ryujinx().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
                         break;
                     case "Yuzu":
-                        await new Yuzu().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new Yuzu().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
                         break;
                     case "Xemu":
-                        await new Xemu().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new Xemu().Install(subProgressBar, subProgressLabel, setting.InstallPath, emulator);
                         break;
                     default:
                         break;

@@ -10,7 +10,7 @@ namespace SteamDeckWindows.Services.Emulators
 {
     public class Ryujinx : IEmulatorService
     {
-        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
+        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, EmulatorSetting emulatorSetting)
         {
             var client = new GithubClient("Ryujinx", "release-channel-master");
             var latestReleases = await client.GetLatestRelease();

@@ -10,7 +10,7 @@ namespace SteamDeckWindows.Services.Tools
 {
     public class EmuSakService : IToolsService
     {
-        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
+        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, ToolSetting toolSetting)
         {
             var client = new GithubClient("CapitaineJSparrow", "emusak-ui");
             var latestReleases = await client.GetLatestRelease();

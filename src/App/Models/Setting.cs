@@ -21,7 +21,9 @@ namespace SteamDeckWindows.Models
         public int ToolSettingId { get; set; }
         public string Name { get; set; }
         public string? InstalledVersion { get; set; }
+        public string? RecommendedVersion { get; set; }
         public bool Install { get; set; }
+        public bool ForceReInstall { get; set; }
         internal int SettingId;
         public virtual Setting Setting { get; private set; }
 }
@@ -31,7 +33,9 @@ namespace SteamDeckWindows.Models
         public int EmulatorSettingId { get; set; }
         public string Name { get; set; }
         public string? InstalledVersion { get; set; }
+        public string? RecommendedVersion { get; set; }
         public bool Install { get; set; }
+        public bool ForceReInstall { get; set; }
         public bool ResetSettings { get; set; }
         internal int SettingId;
         public virtual Setting Setting { get; private set; }

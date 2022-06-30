@@ -45,7 +45,7 @@ namespace SteamDeckWindows.Services.Tools
 
         //    subProgressLabel.Content = "Finished installing GlosSI";
         //}
-        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
+        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, ToolSetting toolSetting)
         {
             var client = new GithubClient("Alia5", "GlosSI");
             var latestReleases = await client.GetAllRelease();

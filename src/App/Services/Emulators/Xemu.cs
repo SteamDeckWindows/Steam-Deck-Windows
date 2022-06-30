@@ -10,7 +10,7 @@ namespace SteamDeckWindows.Services.Emulators
 {
     public class Xemu : IEmulatorService
     {
-        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
+        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, EmulatorSetting emulatorSetting)
         {
             var client = new GithubClient("mborgerson", "xemu");
             var latestReleases = await client.GetLatestRelease();

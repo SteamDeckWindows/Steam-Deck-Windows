@@ -11,7 +11,7 @@ namespace SteamDeckWindows.Services.Emulators
 {
     public class Pcsx2 : IEmulatorService
     {
-        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath)
+        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, EmulatorSetting emulatorSetting)
         {
             var client = new GithubClient("PCSX2", "pcsx2");
             var latestReleases = await client.GetAllRelease();
@@ -24,7 +24,7 @@ namespace SteamDeckWindows.Services.Emulators
 
             subProgressLabel.Content = $"Unpacking {latestRelease.name} to {installPath}\\Temp\\{latestRelease.name}";
             var filenameWithoutExt = Path.GetFileNameWithoutExtension($"{installPath}\\Temp\\{latestRelease.name}");
-            Directory.CreateDirectory($"{installPath}\\Temp\\RetroArch-{latestRelease.name}");
+            Directory.CreateDirectory($"{installPath}\\Temp\\{latestRelease.name}");
             using (var archiveFile = new ArchiveFile($"{installPath}\\Temp\\{latestRelease.name}"))
             {
                 archiveFile.Extract($"{installPath}\\Temp\\{filenameWithoutExt}"); // extract all
