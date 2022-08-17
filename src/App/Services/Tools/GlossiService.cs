@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
 using System.Net.Http;
 using System;
+using SteamDeckWindows.Models;
 
 namespace SteamDeckWindows.Services.Tools
 {
@@ -45,7 +46,7 @@ namespace SteamDeckWindows.Services.Tools
 
         //    subProgressLabel.Content = "Finished installing GlosSI";
         //}
-        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, ToolSetting toolSetting)
+        public async Task Install(ProgressBar subProgressBar, Label subProgressLabel, string installPath, ToolSetting toolSetting, TextBox status)
         {
             var client = new GithubClient("Alia5", "GlosSI");
             var latestReleases = await client.GetAllRelease();

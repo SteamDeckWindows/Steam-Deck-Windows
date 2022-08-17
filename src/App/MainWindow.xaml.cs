@@ -33,10 +33,10 @@ namespace SteamDeckWindows
             //Run migrations
             db.Database.Migrate();
 
+            SeedSetting.SeedSettingsData(db,true);
+
             // load the entities into EF Core
             db.Settings.Load();
-
-            SeedSetting.SeedSettingsData(db,true);
 
             AddStatus("Welcome to Steam Deck Windows");
             var setting = db.Settings.Include(ts => ts.Tools).Include(es => es.Emulators).First();
@@ -93,6 +93,11 @@ namespace SteamDeckWindows
         private void AddStatus(string text)
         {
             tbStatus.Text += $"{text}\r\n";
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
 using SevenZipExtractor;
+using SteamDeckWindows.Models;
 
 namespace SteamDeckWindows.Services.Emulators
 {

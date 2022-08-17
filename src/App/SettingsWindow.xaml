@@ -43,5 +43,6 @@
             <ToggleButton Content="Install drivers" Background="#FF2D2D2D" Foreground="White"/>
         </Label>
         <Label Content="Reset Emulation Station DE settings" HorizontalAlignment="Left" Margin="84,215,0,0" VerticalAlignment="Top" Width="237" Height="30"/>
+        <Button Content="X" Margin="1250,5,10,0" VerticalAlignment="Top" Height="20" Click="Close_Click"/>
     </Grid>
 </Window>
