@@ -5,7 +5,7 @@ namespace SteamDeckWindows.Extensions
     {
         public static void Add(TextBox status, string message)
         {
-            status.Text += $"{text}\r\n";
+            status.Text += $"{message}\r\n";
             status.ScrollToEnd();
         }
     }

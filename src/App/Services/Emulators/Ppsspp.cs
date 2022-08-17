@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
+using SteamDeckWindows.Models;
 
 namespace SteamDeckWindows.Services.Emulators
 {
@@ -14,7 +15,7 @@ namespace SteamDeckWindows.Services.Emulators
         {
             //https://ppsspp.org/files/1_12_3/ppsspp_win.zip
             var client = new GenericHttpDownloadClient();
-            var latestReleases = await client.GetLatestRelease();
+            //var latestReleases = await client.GetLatestRelease();
             var latestRelease = $"https://ppsspp.org/files/{emulatorSetting.RecommendedVersion}/ppsspp_win.zip";
 
             subProgressLabel.Content = $"Downloading PPSSPP {emulatorSetting.RecommendedVersion}";

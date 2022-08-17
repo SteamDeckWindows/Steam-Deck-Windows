@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
 using SevenZipExtractor;
+using SteamDeckWindows.Models;
 
 namespace SteamDeckWindows.Services.Tools
 {
@@ -17,9 +18,9 @@ namespace SteamDeckWindows.Services.Tools
             var latestReleases = await client.GetLatestRelease();
             var latestRelease = latestReleases.assets.Where(x => x.name.StartsWith("Steam-ROM-Manager-portable-") && x.name.EndsWith(".exe")).First();
 
-            if(latestRelease.version == toolSetting.InstalledVersion && !toolSetting.ForceReInstall){
-                status.Content += $"Steam Rom Manager version {latestRelease.version} allready installed skipping download";
-            }
+            //if(latestRelease.version == toolSetting.InstalledVersion && !toolSetting.ForceReInstall){
+            //    status.Text += $"Steam Rom Manager version {latestRelease.version} allready installed skipping download";
+            //}
 
             subProgressLabel.Content = $"Downloading {latestRelease.name}";
             await client.DownloadFile(latestRelease, subProgressBar, $"{installPath}\\Temp\\");

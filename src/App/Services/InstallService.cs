@@ -190,13 +190,13 @@ namespace SteamDeckWindows.Services
                 switch (tool.Name)
                 {
                     case "EmuSAK":
-                        await new EmuSakService().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new EmuSakService().Install(subProgressBar, subProgressLabel, setting.InstallPath, tool, status);
                         break;
                     case "GlosSI":
-                        await new GlosSIService().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new GlosSIService().Install(subProgressBar, subProgressLabel, setting.InstallPath, tool, status);
                         break;
                     case "Steam Rom Manager":
-                        await new SteamRomManagerService().Install(subProgressBar, subProgressLabel, setting.InstallPath);
+                        await new SteamRomManagerService().Install(subProgressBar, subProgressLabel, setting.InstallPath, tool, status);
                         break;
                     default:
                         break;
