@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SteamDeckWindows.Extensions;
+using SteamDeckWindows.Models;
 
 namespace SteamDeckWindows.Services.Emulators
 {

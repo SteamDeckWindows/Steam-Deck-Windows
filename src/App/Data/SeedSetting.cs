@@ -1,4 +1,5 @@
-﻿using SteamDeckWindows.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SteamDeckWindows.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,10 +18,10 @@ namespace SteamDeckWindows.Data
             new EmulatorSetting{ Name = "RPCS3", SettingId = 1, EmulatorSettingId = 7, Install = true, ResetSettings = true, ForceReInstall = false },
             // Standalone where specific version update is needed. Update version below
             new EmulatorSetting{ Name = "PPSSPP", SettingId = 1, EmulatorSettingId = 8, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
-            new EmulatorSetting{ Name = "Cemu", SettingId = 1, EmulatorSettingId = 8, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
-            new EmulatorSetting{ Name = "Dolphin", SettingId = 1, EmulatorSettingId = 8, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
-            new EmulatorSetting{ Name = "Citra", SettingId = 1, EmulatorSettingId = 8, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
-            new EmulatorSetting{ Name = "Duckstation", SettingId = 1, EmulatorSettingId = 8, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
+            new EmulatorSetting{ Name = "Cemu", SettingId = 1, EmulatorSettingId = 9, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
+            new EmulatorSetting{ Name = "Dolphin", SettingId = 1, EmulatorSettingId = 10, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
+            new EmulatorSetting{ Name = "Citra", SettingId = 1, EmulatorSettingId = 11, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
+            new EmulatorSetting{ Name = "Duckstation", SettingId = 1, EmulatorSettingId = 12, Install = true, ResetSettings = true, ForceReInstall = false, RecommendedVersion = "1_12_3" },
             // ----- Below this line are emulators where I am not sure if we should just use RetroArch
             // MAME - if yes which version(s)
             // Final Burn Alpha - if yes which version(s)
@@ -43,20 +44,11 @@ namespace SteamDeckWindows.Data
         // Seed data method
         public static void SeedSettingsData(DatabaseContext db, bool resetToDefault = false)
         {
-            Setting setting = new Setting
-            {
-                Name = "MySetting",
-                InstallPath = $"C:\\SDW",
-                InstallDrivers = true,
-                InstallEmulationStationDe = true,
-                ResetEmulationStationDe = true,
-                SettingId = 1
-            };
-            var exist = db.Settings.FirstOrDefault(x => x.SettingId == 1);
+            var exist = db.Settings.AsNoTracking().FirstOrDefault(x => x.SettingId == 1);
             if(exist != null && resetToDefault)
             {
-                db.RemoveRange(db.EmulatorSettings);
-                db.RemoveRange(db.ToolSettings);
+                db.RemoveRange(db.EmulatorSettings.AsNoTracking());
+                db.RemoveRange(db.ToolSettings.AsNoTracking());
                 db.SaveChanges();
 
                 db.Remove(exist);
@@ -64,6 +56,15 @@ namespace SteamDeckWindows.Data
             }
             if (exist == null || resetToDefault)
             {
+                Setting setting = new Setting
+                {
+                    Name = "MySetting",
+                    InstallPath = $"C:\\SDW",
+                    InstallDrivers = true,
+                    InstallEmulationStationDe = true,
+                    ResetEmulationStationDe = true,
+                    SettingId = 1
+                };
                 db.Settings.Add(setting);
                 db.SaveChanges();
 
